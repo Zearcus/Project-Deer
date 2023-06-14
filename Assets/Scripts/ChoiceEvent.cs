@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ChoiceEvent : MonoBehaviour
+public class ChoiceEvent : MonoBehaviour, IClicked
 {
-    // Start is called before the first frame update
-    void Start()
+    GameObject myCanvas;
+
+    private void Awake() 
     {
-        
+        myCanvas = GameObject.FindWithTag("Canvas");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void onClickedEvent()
     {
-        
+        foreach (Transform element in GameObject.FindWithTag("Canvas").transform)
+        {
+            element.gameObject.SetActive(true);
+        }
     }
 }
