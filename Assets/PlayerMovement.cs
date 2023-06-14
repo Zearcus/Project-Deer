@@ -4,20 +4,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    GameObject myCanvas;
     public List<GameObject> waypoints;
     public float speed = 2f;
 
-    public void Moving() 
+    private void Start() 
     {
-        StartCoroutine(Move());
+        enabled = false;
     }
-
     IEnumerator Move()
     {
         int index = 0;
         Vector3 destination = waypoints[index].transform.position;
         Vector3 newPos = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
         transform.position = newPos;
-        yield return new WaitForSeconds(0);
+        yield return new WaitForFixedUpdate();
+    }
+
+    private void Update() 
+    {
+        if (enabled == true)
+        {
+            StartCoroutine(Move());
+
+            foreach (Transform element in GameObject.FindWithTag("Canvas").transform)
+            {
+                element.gameObject.SetActive(false);
+            }
+              
+        }
     }
 }
