@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MenuButtons : MonoBehaviour
@@ -67,5 +68,17 @@ public class MenuButtons : MonoBehaviour
         {
             element.gameObject.SetActive(false);
         }
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+
+
+    public void CharacterSelected()
+    {
+        //SceneManager.LoadScene("Map");
     }
 }
