@@ -7,6 +7,8 @@ TagManager:
   - ChoicePoint
   - Canvas
   - Buttons
+  - Points
+  - Narration
   layers:
   - Default
   - TransparentFX
