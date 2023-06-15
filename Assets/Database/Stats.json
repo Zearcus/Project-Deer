@@ -1,9 +1,5 @@
 {
-    "Player": {
-        "Name": "test",
-        "Hp": 10,
-        "Mana": 100
-    },
+
     "Enemies": {
         "Name": "test"
     },
