@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Database : MonoBehaviour
-{
-   public Dictionary<NameCard, Card> _Card = new Dictionary<NameCard, Card>(){
-        {new NameCard{
-            Name = "Hache"
-        },
-        new Card{
+public class Database{
+    public string nameCard = "Hache";
+
+    public Dictionary<string, CardData> CardDataBase = new Dictionary<string, CardData>(){
+        {"Hache",
+        new CardData{
         Type = "Weapon",
         Picture = "/Pictures/Hache.png",
         Description = "Longue hache qui coupe",
@@ -16,12 +15,10 @@ public class Database : MonoBehaviour
         HA = 50}
         }
     };
+
+    public List <string> Deck = new List<string>();
 }
-public class NameCard
-{
-    public string Name;
-}
-public class Card
+public class CardData
 {
     public string Type;
 
@@ -34,8 +31,5 @@ public class Card
     public int HA;
 
     public int effect;
-
-
-
-
 }
+
