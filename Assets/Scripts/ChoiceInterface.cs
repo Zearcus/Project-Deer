@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IClicked
 {
     public void onClickedEvent();
+    public void onClickedButton();
 }

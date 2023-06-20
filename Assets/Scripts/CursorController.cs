@@ -62,6 +62,11 @@ public class CursorController : MonoBehaviour
                     click.onClickedEvent();
                 }
 
+                if (gameObject.tag == "Buttons")
+                {
+                    click.onClickedButton();
+                }
+
                 Debug.Log("3D Hit:" + hit.collider.tag);
             }
         }
