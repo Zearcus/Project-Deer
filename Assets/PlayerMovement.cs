@@ -32,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (enabled == true)
         {
+            speed = 2f;
             if (choice1 == true)
             {
                 Choice1Movement();
@@ -45,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
             if (narration == true)
             {
                 Movement();
+                Debug.Log(speed);
             }
         }
     }
@@ -101,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.tag == "StopPoints")
         {
-            speed = 0f;
+            enabled = false;
             Destroy(col.gameObject);
         }
     }

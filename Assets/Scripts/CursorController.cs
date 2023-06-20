@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CursorController : MonoBehaviour
@@ -11,7 +12,10 @@ public class CursorController : MonoBehaviour
     
     private CursorControls controls;
     private Camera mainCamera;
-
+    GameObject trigger;
+    TriggerDialogue _trigger;
+    ChoiceEvent choiceEvent;
+    
     private void Awake() 
     {
         controls = new CursorControls();
@@ -56,18 +60,22 @@ public class CursorController : MonoBehaviour
             if (hit.collider != null)
             {
                 IClicked click = hit.collider.gameObject.GetComponent<IClicked>();
+                trigger = hit.collider.gameObject;
+                _trigger = trigger.GetComponent<TriggerDialogue>();
 
-                if (click != null) 
+                if (hit.collider.tag == "TriggerZone" && this._trigger.playerInRange == true)
                 {
-                    click.onClickedEvent();
+                    if (click != null)
+                    {
+                        click.onClickedEvent();
+                    }
                 }
 
-                if (gameObject.tag == "Buttons")
+                if (hit.collider.tag == "Buttons")
                 {
                     click.onClickedButton();
                 }
-
-                Debug.Log("3D Hit:" + hit.collider.tag);
+                //Debug.Log("3D Hit:" + hit.collider.tag);
             }
         }
     }

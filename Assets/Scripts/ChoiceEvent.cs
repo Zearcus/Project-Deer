@@ -34,7 +34,6 @@ public class ChoiceEvent : MonoBehaviour, IClicked
         if (gameObject.tag == "NarrationPoint")
         {
             _player.speed = 2f;
-            Destroy(this.gameObject.GetComponent<ChoiceEvent>());
         }
     }
 }
