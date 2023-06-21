@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-
+    
 public class Database{
-    public string nameCard = "Hache";
+    public string nameCard = "";
+    public string NameDialogue = "";
 
-    public Dictionary<string, CardData> CardDataBase = new Dictionary<string, CardData>(){
-        {"Hache",
-        new CardData{
+
+    public Dictionary<string, CardData> Card = new Dictionary<string, CardData>(){
+        {"Hache",new CardData{
         Type = "Weapon",
         Picture = "/Pictures/Hache.png",
         Description = "Longue hache qui coupe",
@@ -16,7 +16,9 @@ public class Database{
         }
     };
 
-    public List <string> Deck = new List<string>();
+    public Dictionary<string, string> Dialogue = new Dictionary<string, string>(){
+        {"part1 dialog 1", "Ceci est le premier dialogue du jeu"}
+    };
 }
 public class CardData
 {
