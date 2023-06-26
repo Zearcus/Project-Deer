@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    GameObject myCanvas;
-    public List<GameObject> waypoints;
-    public List<GameObject> waypointschoice1;
-    public List<GameObject> waypointschoice2;
+    public List<GameObject> waypoints, waypointschoice1, waypointschoice2, waypointschoice3;
     public float speed = 2f;
     public bool narration = true;
-    public bool choice1 = false;
-    public bool choice2 = false;
-    int index = 0;
-    int index1 = 0;
-    int index2 = 0;
+    public bool choice1, choice2, choice3 = false;
+
+    int index, index1, index2, index3 = 0;
+
     private void Start() 
     {
         enabled = false;
@@ -87,6 +83,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Choice3Movement()
+    {
+        Vector3 destination = waypointschoice2[index3].transform.position;
+        Vector3 newPos = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
+        transform.position = newPos;
+            
+        if (index3 < waypointschoice2.Count-1)
+        {
+            index3++;
+        }
+    }
+
     public void EnabledChoice1()
     {
         choice1 = !choice1;
@@ -96,6 +104,12 @@ public class PlayerMovement : MonoBehaviour
     public void EnabledChoice2()
     {
         choice2 = !choice2;
+        narration = false;
+    }
+
+    public void EnabledChoice3()
+    {
+        choice3 = !choice3;
         narration = false;
     }
 

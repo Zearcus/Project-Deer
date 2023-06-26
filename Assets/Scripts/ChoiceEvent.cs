@@ -1,5 +1,6 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using TMPro;
+using Ink.Runtime;
 
 public class ChoiceEvent : MonoBehaviour, IClicked
 {
@@ -10,6 +11,7 @@ public class ChoiceEvent : MonoBehaviour, IClicked
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
+    [SerializeField] private TextMeshProUGUI dialogueText;
 
     int index;
 
@@ -26,6 +28,7 @@ public class ChoiceEvent : MonoBehaviour, IClicked
         foreach (Transform element in GameObject.FindWithTag("Canvas").transform)
         {           
             Narration.SetActive(true);
+            DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
         }
     }
 
