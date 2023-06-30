@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pick : MonoBehaviour
 {
+    float posZ = 0.0f;
+    
     public GameObject card;
     // Update is called once per frame
     void Update()
@@ -21,9 +23,8 @@ public class Pick : MonoBehaviour
 
     public void CreateCards()
     {
-        float posZ = 0.0f;
         // var Cards = Ressources.Load("Card") as GameObject;
-        Instantiate(card, new Vector3(4.0f, 1.30f, 1.0f + posZ), new Quaternion(24.0f, 0.0f, 24.0f, 0.0f));
+        Instantiate(card, new Vector3(transform.position.x, transform.position.y, transform.position.z + posZ), transform.rotation);
 
         posZ = posZ + 1.0f;
     }
