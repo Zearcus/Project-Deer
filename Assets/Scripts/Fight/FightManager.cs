@@ -5,12 +5,6 @@ using UnityEngine;
 public class FightManager : MonoBehaviour
 {
     public Pick pick = new Pick();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

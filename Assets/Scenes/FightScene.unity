@@ -753,6 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 496489270}
   - component: {fileID: 496489271}
+  - component: {fileID: 496489272}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -788,6 +789,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 4073009889519615575, guid: d70059c5a9776ee469650820f4a2f292, type: 3}
+--- !u!114 &496489272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496489267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cec5efe1081866489c7fece8ed340aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mana: {fileID: 5551716662687945018, guid: 3d5564ec1de6ffe4999a7a2b60442b68, type: 3}
 --- !u!1 &537871411
 GameObject:
   m_ObjectHideFlags: 0

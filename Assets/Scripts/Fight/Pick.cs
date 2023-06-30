@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class Pick : MonoBehaviour
 {
-    float posZ = 0.0f;
+    float posZ;
     
     public GameObject card;
-    // Update is called once per frame
-    void Update()
-    {
-        //MouseClick();
-    }
 
     public void PickUp(GameObject game)
     {
@@ -28,27 +23,8 @@ public class Pick : MonoBehaviour
 
         posZ = posZ + 1.0f;
     }
-
-    public void GetNameObject(GameObject game)
-    {
-        Debug.Log(game.name);
-    }
-
-    // private void MouseClick()
-    // {
-    //     if (Input.GetMouseButtonDown(0))
-    //     {
-    //         RaycastHit hit;
-    //         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-    //         if (Physics.Raycast(ray, out hit, 100.0f))
-    //         {
-    //             if (hit.transform != null)
-    //             {
-    //                //pick.GetNameObject(hit.transform.gameObject);
-    //                PickUp(hit.transform.gameObject);
-    //             }
-    //         }
-    //     }
-    // }
+    //click the cards for show area collider and place the cards
+    private void SetCards(){}
+    //create a a collider area for set cards in the board
+    private void AreaSetCards(){}
 }
