@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class MenuButtons : MonoBehaviour
 {
-    public void Play()
+    public void BackCharacter()
     {
-        foreach (Transform element in GameObject.Find("Setup 2").transform)
+        foreach (Transform element in GameObject.Find("CharacterSelection").transform)
         {
             element.gameObject.SetActive(false);
         }
@@ -30,33 +31,26 @@ public class MenuButtons : MonoBehaviour
         }
     }
 
-    public void SaveSelected()
+    public void CharacterSelected()
     {
-        foreach (Transform element in GameObject.Find("CharacterSelection").transform)
-        {
-            element.gameObject.SetActive(true);
-        }
-        foreach (Transform element in GameObject.Find("SaveMenu").transform)
+        SceneManager.LoadScene("PauseMenu");
+    }
+
+    public void ExitInventory()
+    {
+        foreach (Transform element in GameObject.Find("InventoryUI").transform)
         {
             element.gameObject.SetActive(false);
         }
     }
 
-    public void BackCharacter()
+    public void Play()
     {
-        foreach (Transform element in GameObject.Find("CharacterSelection").transform)
+        foreach (Transform element in GameObject.Find("Setup 2").transform)
         {
             element.gameObject.SetActive(false);
         }
         foreach (Transform element in GameObject.Find("SaveMenu").transform)
-        {
-            element.gameObject.SetActive(true);
-        }
-    }
-
-    public void Settings()
-    {
-        foreach (Transform element in GameObject.Find("Settings").transform)
         {
             element.gameObject.SetActive(true);
         }
@@ -75,10 +69,36 @@ public class MenuButtons : MonoBehaviour
         Application.Quit();
     }
 
-
-
-    public void CharacterSelected()
+    public void Resume()
     {
-        //SceneManager.LoadScene("Map");
+        foreach (Transform element in GameObject.Find("PauseMenu").transform)
+        {
+            element.gameObject.SetActive(false);
+        }
+    }
+
+    public void SaveSelected()
+    {
+        foreach (Transform element in GameObject.Find("CharacterSelection").transform)
+        {
+            element.gameObject.SetActive(true);
+        }
+        foreach (Transform element in GameObject.Find("SaveMenu").transform)
+        {
+            element.gameObject.SetActive(false);
+        }
+    }
+
+    public void Settings()
+    {
+        foreach (Transform element in GameObject.Find("Settings").transform)
+        {
+            element.gameObject.SetActive(true);
+        }
+    }
+
+    public void ToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
