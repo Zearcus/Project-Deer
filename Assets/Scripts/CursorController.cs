@@ -9,7 +9,7 @@ public class CursorController : MonoBehaviour
     public Texture2D cursor;
     [SerializeField, Tooltip("Clicked Cursor")]
     public Texture2D cursorClicked;
-    
+
     private CursorControls controls;
     private Camera mainCamera;
     GameObject trigger;
@@ -20,7 +20,7 @@ public class CursorController : MonoBehaviour
     {
         controls = new CursorControls();
         ChangeCursor(cursor);
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
         mainCamera = Camera.main;
     }
 
@@ -70,12 +70,16 @@ public class CursorController : MonoBehaviour
                         click.onClickedEvent();
                     }
                 }
-
-                if (hit.collider.tag == "Buttons")
+                
+                if (hit.collider.tag == "Narration")
                 {
-                    click.onClickedButton();
+                    if (click != null)
+                    {
+                        click.dialogCountinue();
+                    }
                 }
-                //Debug.Log("3D Hit:" + hit.collider.tag);
+
+                Debug.Log("3D Hit:" + hit.collider.tag);
             }
         }
     }

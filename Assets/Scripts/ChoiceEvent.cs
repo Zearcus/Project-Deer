@@ -1,16 +1,13 @@
 using UnityEngine;
 using TMPro;
-using Ink.Runtime;
 
 public class ChoiceEvent : MonoBehaviour, IClicked
 {
     GameObject myCanvas;
     GameObject player;
     PlayerMovement _player;
+    DialogueManager dialogue;
     public GameObject Narration;
-
-    [Header("Ink JSON")]
-    [SerializeField] private TextAsset inkJSON;
     [SerializeField] private TextMeshProUGUI dialogueText;
 
     int index;
@@ -25,10 +22,19 @@ public class ChoiceEvent : MonoBehaviour, IClicked
 
     public void onClickedEvent()
     {
-        foreach (Transform element in GameObject.FindWithTag("Canvas").transform)
-        {           
-            Narration.SetActive(true);
-            DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+        _player.enabled = true;
+    }
+
+    public void dialogCountinue()
+    {
+        if (Narration == enabled)
+        {
+            dialogue.dialog++;
+            Debug.Log(dialogue.dialog);
+        }
+        else
+        {
+            Debug.Log("Not Active");
         }
     }
 
@@ -37,6 +43,14 @@ public class ChoiceEvent : MonoBehaviour, IClicked
         if (gameObject.tag == "NarrationPoint")
         {
             _player.speed = 2f;
+        }
+    }
+
+    private void OnTriggerEnter(Collider col) 
+    {
+        if (col.tag == "Player")
+        {
+            Narration.SetActive(true);
         }
     }
 }

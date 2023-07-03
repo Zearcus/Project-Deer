@@ -18,7 +18,8 @@ public class Database{
     };
 
     public Dictionary<string, string> Dialogue = new Dictionary<string, string>(){
-        {"part1 dialog 1", "Ceci est le premier dialogue du jeu"}
+        {"part1 dialog1", "Ceci est le premier dialogue du jeu"},
+        {"part1 dialog2", "Test"}
     };
 
     public Dictionary<string, EnemyData> Enemies = new Dictionary<string, EnemyData>(){
