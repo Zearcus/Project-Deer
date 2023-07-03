@@ -5,7 +5,6 @@ public class Database{
     public string nameCard = "";
     public string NameDialogue = "";
 
-
     public Dictionary<string, CardData> Card = new Dictionary<string, CardData>(){
         {"Hache",new CardData{
         Type = "Weapon",

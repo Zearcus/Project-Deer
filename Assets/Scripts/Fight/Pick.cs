@@ -5,7 +5,8 @@ using UnityEngine;
 public class Pick : MonoBehaviour
 {
     float posZ;
-    
+    private bool canPick = true;
+
     public GameObject card;
 
     public void PickUp(GameObject game)
@@ -18,13 +19,14 @@ public class Pick : MonoBehaviour
 
     public void CreateCards()
     {
-        // var Cards = Ressources.Load("Card") as GameObject;
-        Instantiate(card, new Vector3(transform.position.x, transform.position.y, transform.position.z + posZ), transform.rotation);
+        if (canPick == true)
+        {
+            // var Cards = Ressources.Load("Card") as GameObject;
+            Instantiate(card, new Vector3(transform.position.x, transform.position.y, transform.position.z + posZ), transform.rotation);
 
-        posZ = posZ + 1.0f;
+            posZ = posZ + 1.0f;
+        }
+
     }
-    //click the cards for show area collider and place the cards
-    private void SetCards(){}
-    //create a a collider area for set cards in the board
-    private void AreaSetCards(){}
+
 }
