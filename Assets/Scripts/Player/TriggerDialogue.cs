@@ -5,12 +5,8 @@ public class TriggerDialogue : MonoBehaviour
 {
     public bool playerInRange;
 
-    [SerializeField]
-    GameObject toDestroy;
-
     private void Awake() 
     {
-        toDestroy = this.gameObject;
         playerInRange = false;
     }
 
@@ -28,10 +24,5 @@ public class TriggerDialogue : MonoBehaviour
         {
             playerInRange = false;
         }
-    }
-
-    public void DestroyComp()
-    {
-        Destroy(toDestroy.gameObject.GetComponent<ChoiceEvent>());
     }
 }

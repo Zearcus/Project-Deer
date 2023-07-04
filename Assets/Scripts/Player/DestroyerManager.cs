@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class DestroyerManager : MonoBehaviour
 {
-    public List<GameObject> triggerZones;
-    public List<GameObject> triggerZonesChoice1;
-    public List<GameObject> triggerZonesChoice2;
+    [SerializeField] List<GameObject> triggerZones,triggerZonesChoice1,triggerZonesChoice2;
 
-    int index = 0;
+    int index, index1, index2 = 0;
+
+    static DestroyerManager instance;
+
+    private void Awake() 
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Found more than one DestroyerManager");
+        }
+        instance = this;
+    }
+
+    public static DestroyerManager GetInstance()
+    {
+        return instance;
+    }
 
     public void DestroyThese()
     {
-        Destroy(triggerZones[index].gameObject.GetComponent<ChoiceEvent>());
+        triggerZones[index].SetActive(false);
         index++;
+    }
+
+    public void DestroyChoice1Nar()
+    {
+        triggerZonesChoice1[index1].SetActive(false);
+        index1++;
+    }
+
+    public void DestroyChoice2Nar()
+    {
+       triggerZonesChoice2[index2].SetActive(false);
+        index2++;
     }
 }

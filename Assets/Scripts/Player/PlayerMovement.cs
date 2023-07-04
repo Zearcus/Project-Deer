@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 2f;
     public bool narration = true;
     public bool choice1, choice2, choice3 = false;
-
+    public ChoiceEvent getChoice;
+    GameObject getNarration;
     int index, index1, index2, index3 = 0;
 
     private void Start() 
@@ -42,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
             if (narration == true)
             {
                 Movement();
-                Debug.Log(speed);
             }
         }
     }
@@ -117,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.tag == "StopPoints")
         {
-            enabled = false;
+            enabled = false;    
             Destroy(col.gameObject);
         }
     }
