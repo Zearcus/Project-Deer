@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 2f;
     public bool narration = true;
     public bool choice1, choice2, choice3 = false;
-    public ChoiceEvent getChoice;
+    public bool canMove;
+    public EnableMove getChoice;
     GameObject getNarration;
     int index, index1, index2, index3 = 0;
 

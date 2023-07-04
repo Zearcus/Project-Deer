@@ -5,6 +5,5 @@ using UnityEngine;
 public interface IClicked
 {
     public void onClickedEvent();
-    public void dialogCountinue();
     public void onClickedButton();
 }

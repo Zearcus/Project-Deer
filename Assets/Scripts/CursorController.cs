@@ -12,9 +12,11 @@ public class CursorController : MonoBehaviour
 
     private CursorControls controls;
     private Camera mainCamera;
+    GameObject player;
+    PlayerMovement _player;
     GameObject trigger;
     TriggerDialogue _trigger;
-    ChoiceEvent choiceEvent;
+    EnableMove move;
     
     private void Awake() 
     {
@@ -36,6 +38,9 @@ public class CursorController : MonoBehaviour
 
     private void Start() 
     {
+        player = GameObject.FindWithTag("Player");
+        _player = player.GetComponent<PlayerMovement>();
+        _player.canMove = true;
         controls.Mouse.Click.started += _ => StartedClick();
         controls.Mouse.Click.performed += _ => EndedClick();
     }
@@ -63,19 +68,11 @@ public class CursorController : MonoBehaviour
                 trigger = hit.collider.gameObject;
                 _trigger = trigger.GetComponent<TriggerDialogue>();
 
-                if (hit.collider.tag == "TriggerZone" && this._trigger.playerInRange == true)
+                if (hit.collider.tag == "TriggerZone" && this._trigger.playerInRange == true && _player.canMove == true)
                 {
                     if (click != null)
                     {
                         click.onClickedEvent();
-                    }
-                }
-                
-                if (hit.collider.tag == "Narration")
-                {
-                    if (click != null)
-                    {
-                        click.dialogCountinue();
                     }
                 }
 
