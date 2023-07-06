@@ -34,12 +34,14 @@ public class DialogueManager : MonoBehaviour
     private void Start() 
     {
         part = 1;
-        dialogueText.text = data.Dialogue["part" + part + " dialog1"];
+        dialog = 1;
+        dialogueText.text = data.Dialogue["part" + part + " dialog" + dialog];
     }
 
     public void EnterDialogueMode()
     {
-        StartCoroutine(Test());
+        StartCoroutine(ProgressiveDisplay());
+        
     }
 
     IEnumerator ProgressiveDisplay()
@@ -48,7 +50,7 @@ public class DialogueManager : MonoBehaviour
 
         int totalVisibleCharacters = dialogueText.textInfo.characterCount;
         int counter = 0;
-        int visibleCount =0;
+        int visibleCount = 0;
 
         while (true)
         {
@@ -58,13 +60,13 @@ public class DialogueManager : MonoBehaviour
 
             if (visibleCount >= totalVisibleCharacters)
             {
-                yield return new WaitForSeconds(1.0f);
-                dialogueText.text = data.Dialogue["part1 dialog1"];
+                dialogueText.text = data.Dialogue["part" + part + " dialog" + dialog];
+                
             }
 
             counter += 1;
             
-            yield return new WaitForSeconds(0.05f);   
+            yield return new WaitForSeconds(0.05f);  
         }
     }
 
