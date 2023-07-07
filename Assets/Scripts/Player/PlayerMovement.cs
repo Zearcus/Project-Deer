@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start() 
     {
+        canMove = true;
         enabled = false;
     }
     /*IEnumerator Move()
@@ -118,8 +119,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (col.tag == "StopPoints")
         {
-            enabled = false;    
+            enabled = false;
+            canMove = false;    
             Destroy(col.gameObject);
         }
+    }
+
+    public void EnableMove()
+    {
+        canMove = true;
     }
 }

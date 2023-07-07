@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
+using Unity.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager instance;
     CursorController controls;
     public int part, dialog;
+    string text;
 
     private void Awake() 
     {
@@ -23,7 +25,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update() 
     {
-
+        text = data.Dialogue["part" + part + " dialog" + dialog];
     }
 
     public static DialogueManager GetInstance()
@@ -35,47 +37,31 @@ public class DialogueManager : MonoBehaviour
     {
         part = 1;
         dialog = 1;
-        dialogueText.text = data.Dialogue["part" + part + " dialog" + dialog];
+        dialogueText.text = text;
     }
 
     public void EnterDialogueMode()
     {
-        StartCoroutine(ProgressiveDisplay());
-        
+        StartCoroutine(Test());
     }
 
-    IEnumerator ProgressiveDisplay()
+    public void NextDialogue()
     {
-        dialogueText.ForceMeshUpdate();
+        dialog++;
+    }
 
-        int totalVisibleCharacters = dialogueText.textInfo.characterCount;
-        int counter = 0;
-        int visibleCount = 0;
-
-        while (true)
-        {
-            visibleCount = counter % (totalVisibleCharacters + 1);
-
-            dialogueText.maxVisibleCharacters = visibleCount;
-
-            if (visibleCount >= totalVisibleCharacters)
-            {
-                dialogueText.text = data.Dialogue["part" + part + " dialog" + dialog];
-                
-            }
-
-            counter += 1;
-            
-            yield return new WaitForSeconds(0.05f);  
-        }
+    public void NextPart()
+    {
+        part++;
     }
 
     IEnumerator Test()
     {
-        foreach (char c in dialogueText.text)
+        dialogueText.text = "";
+        foreach (char c in text.ToCharArray())
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.05f);
         }
     }
 }

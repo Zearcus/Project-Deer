@@ -1,11 +1,11 @@
 using UnityEngine;
-using TMPro;
 
 public class EnableMove : MonoBehaviour, IClicked
 {
     GameObject myCanvas;
-    GameObject player;
+    GameObject player, dialogueManager;
     PlayerMovement _player;
+    DialogueManager _dialogueManager;
 
     int index;
 
@@ -16,7 +16,8 @@ public class EnableMove : MonoBehaviour, IClicked
     }
 
     public void onClickedEvent()
-    {
+    {   
+        _player.canMove = true;
         _player.enabled = true;
     }
 

@@ -12,10 +12,11 @@ public class CursorController : MonoBehaviour
 
     private CursorControls controls;
     private Camera mainCamera;
-    GameObject player;
+    GameObject player, dialogueManager;
     PlayerMovement _player;
     GameObject trigger;
     TriggerDialogue _trigger;
+    DialogueManager _dialogueManager;
     EnableMove move;
     
     private void Awake() 
@@ -41,6 +42,8 @@ public class CursorController : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         _player = player.GetComponent<PlayerMovement>();
         _player.canMove = true;
+        dialogueManager = GameObject.FindWithTag("DialogueManager");
+        _dialogueManager = dialogueManager.GetComponent<DialogueManager>();
         controls.Mouse.Click.started += _ => StartedClick();
         controls.Mouse.Click.performed += _ => EndedClick();
     }
@@ -74,9 +77,20 @@ public class CursorController : MonoBehaviour
                     {
                         click.onClickedEvent();
                     }
-                }
+                }  
 
                 Debug.Log("3D Hit:" + hit.collider.tag);
+            }
+
+            if (hit.collider != null && _player.canMove == false)
+            {
+                IClicked click = hit.collider.gameObject.GetComponent<IClicked>();
+
+                if (click != null)
+                {
+                    _dialogueManager.EnterDialogueMode();
+                    _dialogueManager.NextDialogue();
+                }
             }
         }
     }
