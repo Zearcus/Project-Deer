@@ -8,14 +8,14 @@ public class LoadCards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        data.nameCard = "Hache";
+        data.NameCard = "Hache";
         LoadingCards();
     }
 
     void LoadingCards(){
-        textName.text = data.nameCard;
-        textAttack.text = data.Card[data.nameCard].NA.ToString();
-        textMana.text = data.Card[data.nameCard].HA.ToString();
+        textName.text = data.NameCard;
+        textAttack.text = data.Card[data.NameCard].NA.ToString();
+        textMana.text = data.Card[data.NameCard].HA.ToString();
     }
 
     //faire un système de loading de carte par type de carte quand on pioche.

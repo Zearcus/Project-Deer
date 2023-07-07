@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SetOnBoard : MonoBehaviour
 {
+    private string nameCard, nameCollider;
     // Update is called once per frame
     void Update()
     {
@@ -13,4 +14,20 @@ public class SetOnBoard : MonoBehaviour
     private void SetCards() { }
     //create a a collider area for set cards in the board
     private void AreaSetCards() { }
+
+    public void GetNameAndSet(GameObject game) {
+        if(game.name == "Collider"){
+            nameCard = game.name;
+            
+        }
+        if(game.tag == "Clone"){
+            nameCollider = game.tag;
+            
+        }
+
+        if(nameCollider == "Collider" && nameCard == "Clone")
+        {
+            
+        }
+    }
 }

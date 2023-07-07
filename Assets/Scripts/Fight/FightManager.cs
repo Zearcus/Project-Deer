@@ -5,6 +5,7 @@ using UnityEngine;
 public class FightManager : MonoBehaviour
 {
     public Pick pick = new Pick();
+    public SetOnBoard set = new SetOnBoard();
     // Update is called once per frame
     void Update()
     {
@@ -22,10 +23,15 @@ public class FightManager : MonoBehaviour
             {
                 if (hit.transform != null)
                 {
-                   //pick.GetNameObject(hit.transform.gameObject);
                    pick.PickUp(hit.transform.gameObject);
+                   set.GetNameAndSet(hit.transform.gameObject);
+                   //test(hit.transform.gameObject);
                 }
             }
         }
+    }
+
+    void test(GameObject game){
+        Debug.Log(game.name);
     }
 }

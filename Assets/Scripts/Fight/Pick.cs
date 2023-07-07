@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Pick : MonoBehaviour
@@ -26,7 +24,6 @@ public class Pick : MonoBehaviour
 
             posZ = posZ + 1.0f;
         }
-
     }
 
 }
