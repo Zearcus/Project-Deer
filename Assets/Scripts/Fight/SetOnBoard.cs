@@ -19,6 +19,7 @@ public class SetOnBoard : MonoBehaviour
     public void GetNameAndSet(GameObject game) {
         if(game.name == "Collider"){
             nameCard = game.name;
+            Debug.Log(game.name);
             
         }
         if(game.tag == "Clone"){
