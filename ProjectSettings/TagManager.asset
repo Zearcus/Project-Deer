@@ -12,6 +12,7 @@ TagManager:
   - StopPoints
   - TriggerZone
   - Cursor
+  - DialogueManager
   layers:
   - Default
   - TransparentFX
