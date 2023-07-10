@@ -755,6 +755,7 @@ GameObject:
   - component: {fileID: 496489271}
   - component: {fileID: 496489272}
   - component: {fileID: 496489273}
+  - component: {fileID: 496489274}
   m_Layer: 0
   m_Name: FightManager
   m_TagString: Untagged
@@ -815,6 +816,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e016fc6da05ae174381909ef56dbb630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &496489274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496489267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cb0fdec79b95e040a49a015d5298fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pick: {fileID: 496489271}
+  set: {fileID: 496489273}
+  mouse: {fileID: 922742396}
 --- !u!1 &537871411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1371,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 20.108128
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1456,11 +1472,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 922742391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cb0fdec79b95e040a49a015d5298fec, type: 3}
+  m_Script: {fileID: 11500000, guid: a341c879d75a0464ea4b9b3cc874d79d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pick: {fileID: 496489271}
-  set: {fileID: 496489273}
 --- !u!1 &1157498795
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1598,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1267204379
 Transform:
   m_ObjectHideFlags: 0

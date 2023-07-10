@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Pick : MonoBehaviour
 {
+    //Database data = new Database();
+    InventoryTest test = new InventoryTest();
     float posZ;
     private bool canPick = true;
 
@@ -20,10 +22,9 @@ public class Pick : MonoBehaviour
         if (canPick == true)
         {
             // var Cards = Ressources.Load("Card") as GameObject;
-            Instantiate(card, new Vector3(transform.position.x, transform.position.y, transform.position.z + posZ), transform.rotation);
-
+            card = Instantiate(card, new Vector3(transform.position.x, transform.position.y, transform.position.z + posZ), transform.rotation);
+            card.name = test.GetNameDataBase();
             posZ = posZ + 1.0f;
         }
     }
-
 }

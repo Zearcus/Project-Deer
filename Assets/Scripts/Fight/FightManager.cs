@@ -6,6 +6,8 @@ public class FightManager : MonoBehaviour
 {
     public Pick pick = new Pick();
     public SetOnBoard set = new SetOnBoard();
+
+    public MouseClickManager mouse = new MouseClickManager();
     // Update is called once per frame
     void Update()
     {
@@ -14,17 +16,15 @@ public class FightManager : MonoBehaviour
 
     private void MouseClick()
     {
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit, 100.0f))
+            if (Physics.Raycast(ray, out mouse.hit, 100.0f))
             {
-                if (hit.transform != null)
+                if (mouse.hit.transform != null)
                 {
-                   pick.PickUp(hit.transform.gameObject);
-                   set.GetNameAndSet(hit.transform.gameObject);
+                   pick.PickUp(mouse.hit.transform.gameObject);
+                   set.GetNameAndSet(mouse.hit.transform.gameObject);
                    //test(hit.transform.gameObject);
                 }
             }

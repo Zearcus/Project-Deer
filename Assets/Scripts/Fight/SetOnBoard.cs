@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SetOnBoard : MonoBehaviour
 {
+    private GameObject card, colliderCard;
     private string nameCard, nameCollider;
     // Update is called once per frame
     void Update()
