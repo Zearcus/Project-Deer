@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public bool canMove;
     public EnableMove getChoice;
     GameObject getNarration;
+
+    [SerializeField] private DestroyerManager destroy;
     int index, index1, index2, index3 = 0;
 
     private void Start() 
@@ -120,7 +122,8 @@ public class PlayerMovement : MonoBehaviour
         if (col.tag == "StopPoints")
         {
             enabled = false;
-            canMove = false;    
+            canMove = false;
+            destroy.DestroyThese();
             Destroy(col.gameObject);
         }
     }

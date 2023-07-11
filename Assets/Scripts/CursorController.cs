@@ -81,17 +81,6 @@ public class CursorController : MonoBehaviour
 
                 Debug.Log("3D Hit:" + hit.collider.tag);
             }
-
-            if (hit.collider != null && _player.canMove == false)
-            {
-                IClicked click = hit.collider.gameObject.GetComponent<IClicked>();
-
-                if (click != null)
-                {
-                    _dialogueManager.EnterDialogueMode();
-                    _dialogueManager.NextDialogue();
-                }
-            }
         }
     }
 
@@ -99,5 +88,14 @@ public class CursorController : MonoBehaviour
     {
         //Vector2 hotspot = new Vector2(cursorType.width / 2, cursorType.height /2);
         Cursor.SetCursor(cursorType, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void ButtonDialogue()
+    {
+        if (_player.canMove == false)
+        {
+            _dialogueManager.NextDialogue();
+            _dialogueManager.EnterDialogueMode();
+        }
     }
 }

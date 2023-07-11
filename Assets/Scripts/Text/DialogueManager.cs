@@ -6,12 +6,14 @@ using Unity.UI;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
+    [SerializeField] private TextMeshProUGUI nameText;
     private bool dialogueIsPlaying;
     Database data = new Database();
     private static DialogueManager instance;
     CursorController controls;
     public int part, dialog;
     string text;
+    [SerializeField] float textSpeed;
 
     private void Awake() 
     {
@@ -37,11 +39,13 @@ public class DialogueManager : MonoBehaviour
     {
         part = 1;
         dialog = 1;
+        textSpeed = 0.02f;
         dialogueText.text = text;
     }
 
     public void EnterDialogueMode()
     {
+        StopAllCoroutines();
         StartCoroutine(Test());
     }
 
@@ -61,7 +65,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char c in text.ToCharArray())
         {
             dialogueText.text += c;
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(textSpeed);
         }
     }
 }
