@@ -6,7 +6,7 @@ public class FightManager : MonoBehaviour
 {
     public Pick pick;
     public SetOnBoard set;
-
+   // public Mana mana;
     public MouseClickManager mouse;
 
     //public MouseClick click;
@@ -26,19 +26,16 @@ public class FightManager : MonoBehaviour
                 if (mouse.hit.transform != null)
                 {
                    pick.PickUp(mouse.hit.transform.gameObject);
-                   set.GetNameAndSet(mouse.hit.transform.gameObject);
-                   //test(hit.transform.gameObject);
+                   //set.GetNameAndSet(mouse.hit.transform.gameObject);
+                   //test(mouse.hit.transform.gameObject);
+                   set.AreaSetCards(mouse.hit.transform.gameObject);
+                    //mana.ManaTest(mouse.hit.transform.gameObject);
                 }
             }
         }
     }
 
     void test(GameObject game){
-        //Debug.Log(game.name);
+        Debug.Log(game.name);
     }
 }
-
-// public class MouseClick : MonoBehaviour{
-//     public RaycastHit hit;
-    
-// }

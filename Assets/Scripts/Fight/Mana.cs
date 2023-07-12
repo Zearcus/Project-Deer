@@ -8,22 +8,20 @@ public class Mana : MonoBehaviour
     public GameObject mana;
     private GameObject ManaDestroy;
     // Update is called once per frame
-    void Update()
+
+    //Button test
+    public void ManaTest(GameObject game)
     {
-        ManaTest();
-    }
-//Button test
-    private void ManaTest()
-    {
-        if(Input.GetKeyDown(KeyCode.S)){
+        if (game.name == "Mana bar")
             GetMana();
-        }
-        if(Input.GetKeyDown(KeyCode.D)){
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
             LostMana();
         }
     }
 
-//Instantiate prefab mana
+    //Instantiate prefab mana
     public void GetMana()
     {
         ManaDestroy = Instantiate(mana, new Vector3(-0.73f + PosX, 0.5f, 5.70f), transform.rotation);
@@ -32,7 +30,7 @@ public class Mana : MonoBehaviour
 
     }
 
-//Destroy clone mana
+    //Destroy clone mana
     public void LostMana()
     {
         var tag = GameObject.FindGameObjectWithTag("Clone");

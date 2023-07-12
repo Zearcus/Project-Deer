@@ -3,7 +3,7 @@ using UnityEngine;
 public class Pick : MonoBehaviour
 {
     //Database data = new Database();
-    InventoryTest test = new InventoryTest();
+    InventoryTest test= new InventoryTest();
     float posZ;
     private bool canPick = true;
 
