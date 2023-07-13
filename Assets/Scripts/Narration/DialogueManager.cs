@@ -9,15 +9,14 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     private bool dialogueIsPlaying;
     Database data = new Database();
-    private static DialogueManager instance;
-    CursorController controls;
+    private static DialogueManager instance; 
     public int part, dialog;
     string text;
+    int numChar;
     [SerializeField] float textSpeed;
 
     private void Awake() 
     {
-        controls = new CursorController();
         if (instance != null)
         {
             Debug.LogWarning("Found more than one DialogueManager");
@@ -25,9 +24,10 @@ public class DialogueManager : MonoBehaviour
         instance = this;    
     }
 
-    private void Update() 
+    private void FixedUpdate() 
     {
         text = data.Dialogue["part" + part + " dialog" + dialog];
+        DialogueBetweenCharacter();
     }
 
     public static DialogueManager GetInstance()
@@ -43,7 +43,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = text;
     }
 
-    public void EnterDialogueMode()
+    public void EnterNarrationMode()
     {
         StopAllCoroutines();
         StartCoroutine(Test());
@@ -57,6 +57,15 @@ public class DialogueManager : MonoBehaviour
     public void NextPart()
     {
         part++;
+    }
+
+    public void DialogueBetweenCharacter()
+    {
+        name = data.NameCharacters["name" + numChar];
+        if (dialogueIsPlaying)
+        {
+            nameText.text = name;
+        }
     }
 
     IEnumerator Test()

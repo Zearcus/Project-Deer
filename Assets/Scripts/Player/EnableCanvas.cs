@@ -24,7 +24,7 @@ public class EnableCanvas : MonoBehaviour
         {
             Narration.SetActive(true);
             _player.canMove = false;
-            DialogueManager.GetInstance().EnterDialogueMode();
+            DialogueManager.GetInstance().EnterNarrationMode();
         }
     }
 }

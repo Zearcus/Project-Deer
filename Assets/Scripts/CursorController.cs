@@ -95,7 +95,7 @@ public class CursorController : MonoBehaviour
         if (_player.canMove == false)
         {
             _dialogueManager.NextDialogue();
-            _dialogueManager.EnterDialogueMode();
+            _dialogueManager.EnterNarrationMode();
         }
     }
 }
