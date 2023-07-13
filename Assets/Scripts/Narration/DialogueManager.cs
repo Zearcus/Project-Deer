@@ -10,8 +10,9 @@ public class DialogueManager : MonoBehaviour
     private bool dialogueIsPlaying;
     Database data = new Database();
     private static DialogueManager instance; 
-    public int part, dialog;
+    [SerializeField] int part, dialog;
     string text;
+    string name;
     int numChar;
     [SerializeField] float textSpeed;
 
@@ -24,10 +25,16 @@ public class DialogueManager : MonoBehaviour
         instance = this;    
     }
 
-    private void FixedUpdate() 
+    private void Update() 
     {
-        text = data.Dialogue["part" + part + " dialog" + dialog];
-        DialogueBetweenCharacter();
+        text = data.Narration["part" + part + " dialog" + dialog].CoreText;
+        name = data.Narration["part" + part + " dialog" + dialog].NameCharacter;
+
+        if (dialogueText.text == null || nameText.text == null)
+        {
+            dialogueText.text = text;
+            nameText.text = name;
+        }
     }
 
     public static DialogueManager GetInstance()
@@ -35,23 +42,27 @@ public class DialogueManager : MonoBehaviour
         return instance;
     }
 
-    private void Start() 
+    void Start() 
     {
         part = 1;
-        dialog = 1;
+        dialog = 0;
         textSpeed = 0.02f;
-        dialogueText.text = text;
     }
 
     public void EnterNarrationMode()
     {
         StopAllCoroutines();
-        StartCoroutine(Test());
+        StartCoroutine(ProgressiveText());
+        Debug.Log(dialog);
+        Debug.Log(dialogueText.text);
+        Debug.Log(nameText.text);
     }
 
     public void NextDialogue()
     {
         dialog++;
+        dialogueText.text = text;
+        nameText.text = name;
     }
 
     public void NextPart()
@@ -59,22 +70,20 @@ public class DialogueManager : MonoBehaviour
         part++;
     }
 
-    public void DialogueBetweenCharacter()
+    IEnumerator ProgressiveText()
     {
-        name = data.NameCharacters["name" + numChar];
-        if (dialogueIsPlaying)
-        {
-            nameText.text = name;
-        }
-    }
-
-    IEnumerator Test()
-    {
-        dialogueText.text = "";
+        dialogueText.text = text;
         foreach (char c in text.ToCharArray())
         {
             dialogueText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }
+    }
+
+    public IEnumerator EndText()
+    {
+        StopAllCoroutines();
+        dialogueText.text = text;
+        yield return null;
     }
 }

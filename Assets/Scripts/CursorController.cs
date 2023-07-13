@@ -27,6 +27,14 @@ public class CursorController : MonoBehaviour
         mainCamera = Camera.main;
     }
 
+    private void Update() 
+    {
+        if (Input.GetMouseButtonDown(0) && _player.canMove == false)
+        {
+            StartCoroutine(_dialogueManager.EndText());
+        }
+    }
+
     private void OnEnable()
     {
         controls.Enable();

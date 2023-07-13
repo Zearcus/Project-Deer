@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     GameObject getNarration;
 
     [SerializeField] private DestroyerManager destroy;
+    [SerializeField] private DialogueManager _dialogueManager;
     int index, index1, index2, index3 = 0;
 
     private void Start() 

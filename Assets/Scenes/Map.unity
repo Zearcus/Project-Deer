@@ -9459,6 +9459,11 @@ PrefabInstance:
       objectReference: {fileID: 821646491}
     - target: {fileID: 7824373439765068604, guid: 3c38f4ac2d86b2c468883c70c8c20f92,
         type: 3}
+      propertyPath: _dialogueManager
+      value: 
+      objectReference: {fileID: 1470075635}
+    - target: {fileID: 7824373439765068604, guid: 3c38f4ac2d86b2c468883c70c8c20f92,
+        type: 3}
       propertyPath: waypoints.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -9677,7 +9682,12 @@ PrefabInstance:
     - target: {fileID: 7194251337274331878, guid: c68696fd1512f5745928466179024a14,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019040563373943720, guid: c68696fd1512f5745928466179024a14,
+        type: 3}
+      propertyPath: m_text
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8019040563373943720, guid: c68696fd1512f5745928466179024a14,
         type: 3}
