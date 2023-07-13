@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SetOnBoard : MonoBehaviour
 {
+    char letter;
     MouseClickManager mouse;
     public GameObject Area;
     private int MaxSpawnArea = 4, CurrentValue = 0;
@@ -23,8 +24,23 @@ public class SetOnBoard : MonoBehaviour
         // create colliders
         while (CurrentValue != MaxSpawnArea)
         {
+            switch(CurrentValue){
+                case 0:
+                    letter = 'A';
+                    break;
+                case 1:
+                    letter = 'B';
+                    break;
+                case 2: 
+                    letter = 'C';
+                    break;
+                case 3:
+                    letter = 'D';
+                    break;
+            }
             Area = Instantiate(Area, new Vector3(-1.5f, 0.3f, 2.0f + PosZ), transform.rotation);
-            Area.name = "collider";
+            Area.name = "Collider";
+            Area.tag = "Collider" + " " + letter;
             CurrentValue++;
             PosZ = PosZ - 1.0f;
         }
