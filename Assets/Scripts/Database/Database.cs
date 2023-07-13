@@ -20,8 +20,7 @@ public class Database{
     public Dictionary<string, Dialogue> Dialogue = new Dictionary<string, Dialogue>(){
         {"part1 dialog 1",new Dialogue{
             NameCharacter = "Samten",
-            CoreText = "Ceci est le premier dialogue du jeu"
-        } 
+            CoreText = "Ceci est le premier dialogue du jeu"} 
         }
     };
 
