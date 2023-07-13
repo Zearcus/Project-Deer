@@ -36,6 +36,11 @@ public class Database{
         {"name2", "Anil"},
         {"name3", "Milo"},
         {"name4", "Shinn"}
+    public Dictionary<string, Dialogue> Dialogue = new Dictionary<string, Dialogue>(){
+        {"part1 dialog 1",new Dialogue{
+            NameCharacter = "Samten",
+            CoreText = "Ceci est le premier dialogue du jeu"} 
+        }
     };
 
     public Dictionary<string, EnemyData> Enemies = new Dictionary<string, EnemyData>(){
@@ -63,3 +68,15 @@ public class EnemyData{
     public int Attack;
 
 }
+
+public class Dialogue{
+   public string NameCharacter;
+
+   public string CoreText;
+}
+
+/*
+    Call example:
+    Dialogue[NameDialogue].NameCharacter; calling the name with key value
+    Dialogue[NameDialogue].CoreText; calling the text with key value
+*/
