@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Clone
   - Cards
+  - Collider A
+  - Collider B
+  - Collider C
+  - Collider D
   layers:
   - Default
   - TransparentFX

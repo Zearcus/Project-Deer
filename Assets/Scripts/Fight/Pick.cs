@@ -22,7 +22,7 @@ public class Pick : MonoBehaviour
         if (canPick == true)
         {
             // var Cards = Ressources.Load("Card") as GameObject;
-            card = Instantiate(card, new Vector3(transform.position.x, transform.position.y, transform.position.z + posZ), transform.rotation);
+            card = Instantiate(card, new Vector3(-2.2f, 0.1f, -0.7f + posZ), transform.rotation);
             card.name = test.GetNameDataBase();
             posZ = posZ + 1.0f;
         }
