@@ -5,9 +5,9 @@ using UnityEngine;
 public class CardSettings : MonoBehaviour
 {
     public GameObject Collider, Button;
-    private int MaxSpawnArea = 4, CurrentValue;
-    private float PosZ;
-    private char letter;
+    private int CurrentValue;
+    //private float PosZ;
+   // private char letter;
     private bool isActivate = false;
 
     //create a a collider area for set cards in the board
@@ -15,6 +15,7 @@ public class CardSettings : MonoBehaviour
     {
         if (game.tag == "Cards")
         {
+            //CreateButton(0);
             CreateColliders();
             isActivate = true;
 
@@ -27,18 +28,19 @@ public class CardSettings : MonoBehaviour
 
     private void CreateColliders()
     {
+        int MaxValue = 4;
+        float PosZ = 0.0f;
         // create colliders
-        while (CurrentValue != MaxSpawnArea)
+        while (CurrentValue != MaxValue)
         {
             CurrentValue++;
-            SetLetterColliderTag();
             GameObject Area = Instantiate(Collider, new Vector3(-0.5f, 0.3f, 2.0f + PosZ), transform.rotation);
             Area.name = "Collider";
-            Area.tag = "Collider" + " " + letter;
+            Area.tag = "Collider" + " " + SetLetterColliderTag();
             
             PosZ = PosZ - 1.0f;
         }
-        if (CurrentValue == MaxSpawnArea)
+        if (CurrentValue == MaxValue)
         {
             PosZ = 0.0f;
         }
@@ -48,15 +50,28 @@ public class CardSettings : MonoBehaviour
     {
         while (CurrentValue != 0)
         {
-            SetLetterColliderTag();
-            var name = GameObject.FindGameObjectWithTag("Collider" + " " + letter);
+            var name = GameObject.FindGameObjectWithTag("Collider" + " " + SetLetterColliderTag());
             Destroy(name);
             CurrentValue--;
         }
     }
 
-    private void SetLetterColliderTag()
+    private void CreateButton(int Value)
     {
+        int  MaxValue = 2;
+        float PosX = 0.0f;
+        while(Value != MaxValue)
+        {
+            Value++;
+            GameObject Createbutton = Instantiate(Button, new Vector3(-2.0f + PosX, 0.1f, -1.3f), Quaternion.Euler(90,90,0));
+            Createbutton.name = "Button";
+            PosX = PosX - 0.5f;
+        }
+    }
+
+    private char SetLetterColliderTag()
+    {
+        char letter = ' ';
         switch (CurrentValue)
         {
             case 1:
@@ -71,6 +86,11 @@ public class CardSettings : MonoBehaviour
             case 4:
                 letter = 'D';
                 break;
+            default:
+                Debug.Log("Le Collider que vous voulez créer n'existe pas.");
+                break;
         }
+
+        return letter;
     }
 }

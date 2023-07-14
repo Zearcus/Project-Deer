@@ -24,7 +24,7 @@ public class Pick : MonoBehaviour
             // var Cards = Ressources.Load("Card") as GameObject;
             card = Instantiate(card, new Vector3(-2.2f, 0.1f, -0.7f + posZ), transform.rotation);
             card.name = test.GetNameDataBase();
-            posZ = posZ + 1.0f;
+            posZ = posZ + 2.0f;
         }
     }
 }
