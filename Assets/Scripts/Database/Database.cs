@@ -64,8 +64,8 @@ public class EnemyData{
 
 public class Dialogue{
    public string NameCharacter;
-
    public string CoreText;
+   public string Picture;
 }
 
 /*
