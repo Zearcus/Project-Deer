@@ -27,14 +27,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Update() 
     {
-        text = data.Narration["part" + part + " dialog" + dialog].CoreText;
-        name = data.Narration["part" + part + " dialog" + dialog].NameCharacter;
-
-        if (dialogueText.text == null || nameText.text == null)
-        {
-            dialogueText.text = text;
-            nameText.text = name;
-        }
+        
     }
 
     public static DialogueManager GetInstance()
@@ -61,8 +54,8 @@ public class DialogueManager : MonoBehaviour
     public void NextDialogue()
     {
         dialog++;
-        dialogueText.text = text;
-        nameText.text = name;
+        text = data.Narration["part" + part + " dialog" + dialog].CoreText;
+        nameText.text = data.Narration["part" + part + " dialog" + dialog].NameCharacter;
     }
 
     public void NextPart()
@@ -72,7 +65,7 @@ public class DialogueManager : MonoBehaviour
 
     IEnumerator ProgressiveText()
     {
-        dialogueText.text = text;
+        dialogueText.text = "";
         foreach (char c in text.ToCharArray())
         {
             dialogueText.text += c;
@@ -83,7 +76,8 @@ public class DialogueManager : MonoBehaviour
     public IEnumerator EndText()
     {
         StopAllCoroutines();
-        dialogueText.text = text;
         yield return null;
     }
+
+    
 }
