@@ -6,8 +6,6 @@ public class CardSettings : MonoBehaviour
 {
     public GameObject Collider, Button;
     private int CurrentValue;
-    //private float PosZ;
-   // private char letter;
     private bool isActivate = false;
 
     //create a a collider area for set cards in the board
