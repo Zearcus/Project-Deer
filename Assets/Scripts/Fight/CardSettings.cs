@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CardSettings : MonoBehaviour
 {
+    public Sprite Summon, Detail;
     public GameObject Button;
     private int CurrentValue;
     //private string testString;
@@ -16,7 +17,7 @@ public class CardSettings : MonoBehaviour
         {
             CreateButton();
         }
-        if (game.name != "Card")
+        if (game.name != "Card" && game.tag != "Button")
         {
             DestroyButton();
         }
@@ -33,6 +34,13 @@ public class CardSettings : MonoBehaviour
             button.name = "Button" + " " + SetLetterButton();
             button.tag = ("Button");
             PosX = PosX - 0.5f;
+            if(CurrentValue == 1){
+                button.GetComponent<SpriteRenderer>().sprite = Summon;
+            }
+            else if (CurrentValue == 2){
+                button.GetComponent<SpriteRenderer>().sprite = Detail;
+            }
+            button.GetComponent<SpriteRenderer>().size = new Vector3(12.0f, 12.0f, 12.0f);
 
         }
     }

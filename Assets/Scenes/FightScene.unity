@@ -817,7 +817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e016fc6da05ae174381909ef56dbb630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Button: {fileID: 9043994513555053487, guid: 2e3ca5793b57a0d49bf4137450ec9917, type: 3}
+  Summon: {fileID: 21300000, guid: 6aa858b83df47364e8476200e1c4af68, type: 3}
+  Detail: {fileID: 21300000, guid: be66312141105c04aa3e23e00616bbf5, type: 3}
+  Button: {fileID: 3957459791807624604, guid: 8e0c14adea67592498e5f5443e9500f1, type: 3}
 --- !u!114 &496489274
 MonoBehaviour:
   m_ObjectHideFlags: 0
