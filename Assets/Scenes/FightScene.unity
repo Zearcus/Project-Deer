@@ -755,6 +755,7 @@ GameObject:
   - component: {fileID: 496489271}
   - component: {fileID: 496489272}
   - component: {fileID: 496489273}
+  - component: {fileID: 496489275}
   - component: {fileID: 496489274}
   m_Layer: 0
   m_Name: FightManager
@@ -816,8 +817,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e016fc6da05ae174381909ef56dbb630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collider: {fileID: 5053354870016170293, guid: 500cb8af89f28de46820b806852374dd,
-    type: 3}
   Button: {fileID: 9043994513555053487, guid: 2e3ca5793b57a0d49bf4137450ec9917, type: 3}
 --- !u!114 &496489274
 MonoBehaviour:
@@ -833,7 +832,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pick: {fileID: 496489271}
   set: {fileID: 496489273}
+  button: {fileID: 496489275}
   mouse: {fileID: 922742396}
+--- !u!114 &496489275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496489267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 314503b0816e8c9479fb96254b9943f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Collider: {fileID: 5053354870016170293, guid: 500cb8af89f28de46820b806852374dd,
+    type: 3}
 --- !u!1 &537871411
 GameObject:
   m_ObjectHideFlags: 0

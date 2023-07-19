@@ -6,7 +6,8 @@ public class FightManager : MonoBehaviour
 {
     public Pick pick;
     public CardSettings set;
-   // public Mana mana;
+    public ButtonSettings button;
+    // public Mana mana;
     public MouseClickManager mouse;
 
     //public MouseClick click;
@@ -26,7 +27,8 @@ public class FightManager : MonoBehaviour
                 {
                    pick.PickUp(mouse.hit.transform.gameObject);
                    //test(mouse.hit.transform.gameObject);
-                   set.AreaSetCards(mouse.hit.transform.gameObject);
+                   set.SetButtons(mouse.hit.transform.gameObject);
+                   button.SetArea(mouse.hit.transform.gameObject);
                 }
             }
         }
