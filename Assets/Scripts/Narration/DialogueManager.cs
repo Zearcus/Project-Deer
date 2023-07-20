@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using TMPro;
-using Unity.UI;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] Image _narrationObject;
+    [SerializeField] Sprite narBG;
     private bool dialogueIsPlaying;
     Database data = new Database();
     private static DialogueManager instance; 
@@ -40,6 +42,7 @@ public class DialogueManager : MonoBehaviour
         part = 1;
         dialog = 0;
         textSpeed = 0.02f;
+        
     }
 
     public void EnterNarrationMode()
@@ -47,8 +50,9 @@ public class DialogueManager : MonoBehaviour
         StopAllCoroutines();
         StartCoroutine(ProgressiveText());
         Debug.Log(dialog);
-        Debug.Log(dialogueText.text);
-        Debug.Log(nameText.text);
+        Debug.Log(text);
+        Debug.Log(name);
+        Debug.Log(_narrationObject.sprite);
     }
 
     public void NextDialogue()
@@ -56,6 +60,7 @@ public class DialogueManager : MonoBehaviour
         dialog++;
         text = data.Narration["part" + part + " dialog" + dialog].CoreText;
         nameText.text = data.Narration["part" + part + " dialog" + dialog].NameCharacter;
+        _narrationObject.sprite = Resources.Load<Sprite>(data.Narration["part" + part + " dialog" + dialog].Picture);
     }
 
     public void NextPart()
@@ -76,8 +81,6 @@ public class DialogueManager : MonoBehaviour
     public IEnumerator EndText()
     {
         StopAllCoroutines();
-        yield return null;
+        yield return dialogueText.text = text;
     }
-
-    
 }

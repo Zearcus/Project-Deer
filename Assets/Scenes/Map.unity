@@ -5873,6 +5873,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &570514158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1895988444162416956, guid: c68696fd1512f5745928466179024a14,
+    type: 3}
+  m_PrefabInstance: {fileID: 8572901233857845537}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &585552387
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7572,6 +7584,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 124839245}
   nameText: {fileID: 883267455}
+  _narrationObject: {fileID: 570514158}
+  narBG: {fileID: 0}
   part: 0
   dialog: 0
   textSpeed: 0
@@ -9521,23 +9535,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1895988444162416956, guid: c68696fd1512f5745928466179024a14,
         type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1895988444162416956, guid: c68696fd1512f5745928466179024a14,
+        type: 3}
       propertyPath: m_Color.a
-      value: 0.6039216
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895988444162416956, guid: c68696fd1512f5745928466179024a14,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.21960786
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895988444162416956, guid: c68696fd1512f5745928466179024a14,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.21960786
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1895988444162416956, guid: c68696fd1512f5745928466179024a14,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.21960786
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2403710480875019826, guid: c68696fd1512f5745928466179024a14,
         type: 3}
@@ -9643,6 +9662,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2755042103089911468, guid: c68696fd1512f5745928466179024a14,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310355954199488513, guid: c68696fd1512f5745928466179024a14,
         type: 3}
