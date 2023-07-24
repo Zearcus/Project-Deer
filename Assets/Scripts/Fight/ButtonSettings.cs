@@ -6,14 +6,15 @@ public class ButtonSettings : MonoBehaviour
 {
     public GameObject Collider;
     private int CurrentValue;
+    //private bool isActivate = false;
 
     public void SetArea(GameObject game){
-        if(game.tag == ("Button")){
+        if(game.name == ("Button Summon")){
             CreateColliders();
         }
-        else if (game.tag != ("Button")){
-            DestroyColliders();
-        }
+        // if (game.tag != "Collider" && isActivate == true){
+        //     DestroyColliders();
+        // }
     }
 
     private void CreateColliders()
@@ -24,8 +25,9 @@ public class ButtonSettings : MonoBehaviour
         while (CurrentValue != MaxValue)
         {
             CurrentValue++;
-            GameObject Area = Instantiate(Collider, new Vector3(-0.5f, 0.3f, 2.0f + PosZ), transform.rotation);
+            GameObject Area = Instantiate(Collider, new Vector3(-0.5f, 0.3f, 2.0f + PosZ), Quaternion.Euler(0.0f, 90.0f, 0.0f));
             Area.name = "Collider" + " " + SetLetterCollider();
+            Area.tag = "Collider";
             PosZ = PosZ - 1.0f;
         }
     }

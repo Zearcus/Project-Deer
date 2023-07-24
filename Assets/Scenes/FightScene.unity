@@ -817,9 +817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e016fc6da05ae174381909ef56dbb630, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Summon: {fileID: 21300000, guid: 6aa858b83df47364e8476200e1c4af68, type: 3}
-  Detail: {fileID: 21300000, guid: be66312141105c04aa3e23e00616bbf5, type: 3}
-  Button: {fileID: 3957459791807624604, guid: 8e0c14adea67592498e5f5443e9500f1, type: 3}
+  Summon: {fileID: 2155360933428034904, guid: 471aa13488d63b741bd93bf9785f92e2, type: 3}
+  Detail: {fileID: 2098591205061882779, guid: cb77008654c26934198ed4da28f28b0d, type: 3}
 --- !u!114 &496489274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314503b0816e8c9479fb96254b9943f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Collider: {fileID: 5053354870016170293, guid: 500cb8af89f28de46820b806852374dd,
+  Collider: {fileID: 8913319810659044661, guid: dfeb4c058bb0e934ea1ef8fd73588e4b,
     type: 3}
 --- !u!1 &537871411
 GameObject:

@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CardSettings : MonoBehaviour
 {
-    public Sprite Summon, Detail;
-    public GameObject Button;
+    public GameObject Summon, Detail;
     private int CurrentValue;
+    private bool isActivate = false;
     //private string testString;
 
     //create a a collider area for set cards in the board
@@ -16,10 +16,12 @@ public class CardSettings : MonoBehaviour
         if (game.name == "Card")
         {
             CreateButton();
+            isActivate = true;
         }
-        if (game.name != "Card" && game.tag != "Button")
+        if ( game.name != "Card" && isActivate == true)
         {
             DestroyButton();
+            isActivate = false;
         }
     }
 
@@ -30,18 +32,24 @@ public class CardSettings : MonoBehaviour
         while (CurrentValue != MaxValue)
         {
             CurrentValue++;
-            GameObject button = Instantiate(Button, new Vector3(-2.0f + PosX, 0.1f, -1.3f), Quaternion.Euler(90, 90, 0));
-            button.name = "Button" + " " + SetLetterButton();
-            button.tag = ("Button");
-            PosX = PosX - 0.5f;
-            if(CurrentValue == 1){
-                button.GetComponent<SpriteRenderer>().sprite = Summon;
+            switch (CurrentValue)
+            {
+                case 1:
+                    GameObject buttonS = Instantiate(Summon, new Vector3(-2.5f + PosX, 0.1f, -1.3f), Quaternion.Euler(90, 90, 0));
+                    buttonS.name = "Button" + " " + SetNameButton();
+                    buttonS.tag = ("Button");
+                    PosX = PosX - 0.7f;
+                    break;
+                case 2:
+                    GameObject buttonD = Instantiate(Detail, new Vector3(-2.5f + PosX, 0.1f, -1.3f), Quaternion.Euler(90, 90, 0));
+                    buttonD.name = "Button" + " " + SetNameButton();
+                    buttonD.tag = ("Button");
+                    //PosX = PosX - 0.5f;
+                    break;
+                default:
+                    Debug.Log("Rien ne peut être invoqué.");
+                    break;
             }
-            else if (CurrentValue == 2){
-                button.GetComponent<SpriteRenderer>().sprite = Detail;
-            }
-            button.GetComponent<SpriteRenderer>().size = new Vector3(12.0f, 12.0f, 12.0f);
-
         }
     }
 
@@ -49,27 +57,27 @@ public class CardSettings : MonoBehaviour
     {
         while (CurrentValue != 0)
         {
-            var name = GameObject.Find("Button" + " " + SetLetterButton());
+            var name = GameObject.Find("Button" + " " + SetNameButton());
             Destroy(name);
             CurrentValue--;
         }
     }
 
-    private char SetLetterButton()
+    private string SetNameButton()
     {
-        char letter = ' ';
+        string name = "";
         switch (CurrentValue)
         {
             case 1:
-                letter = 'A';
+                name = "Summon";
                 break;
             case 2:
-                letter = 'B';
+                name = "Detail";
                 break;
             default:
-                Debug.Log("Le Bouton que vous voulez créer ou supprimer n'exisste pas.");
+                Debug.Log("Le Bouton que vous voulez créer ou supprimer n'existe pas.");
                 break;
         }
-        return letter;
+        return name;
     }
 }
