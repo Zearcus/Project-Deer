@@ -34,7 +34,6 @@ public class ButtonSettings : MonoBehaviour
 
     private void DestroyColliders()
     {
-
         while (CurrentValue != 0)
         {
             var name = GameObject.Find("Collider" + " " + SetLetterCollider());

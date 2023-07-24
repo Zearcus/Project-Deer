@@ -26,7 +26,7 @@ public class FightManager : MonoBehaviour
                 if (mouse.hit.transform != null)
                 {
                    pick.PickUp(mouse.hit.transform.gameObject);
-                   //test(mouse.hit.transform.gameObject);
+                   test(mouse.hit.transform.parent.gameObject);
                    set.SetButtons(mouse.hit.transform.gameObject);
                    button.SetArea(mouse.hit.transform.gameObject);
                 }
@@ -35,6 +35,6 @@ public class FightManager : MonoBehaviour
     }
 
     void test(GameObject game){
-        Debug.Log(game.name);
+        Debug.Log(game.tag);
     }
 }

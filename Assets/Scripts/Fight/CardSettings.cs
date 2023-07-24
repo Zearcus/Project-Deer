@@ -13,12 +13,12 @@ public class CardSettings : MonoBehaviour
     public void SetButtons(GameObject game)
     {
         //testString = game.name;
-        if (game.name == "Card")
+        if (game.name == "Hache")
         {
             CreateButton();
             isActivate = true;
         }
-        if ( game.name != "Card" && isActivate == true)
+        if (game.name != "Card" && isActivate == true)
         {
             DestroyButton();
             isActivate = false;
@@ -47,7 +47,7 @@ public class CardSettings : MonoBehaviour
                     //PosX = PosX - 0.5f;
                     break;
                 default:
-                    Debug.Log("Rien ne peut être invoqué.");
+                    Debug.Log("Rien ne peut être invoqué.");  
                     break;
             }
         }
