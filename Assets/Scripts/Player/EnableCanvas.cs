@@ -8,8 +8,7 @@ public class EnableCanvas : MonoBehaviour
     GameObject myCanvas;
     DialogueManager dialogue;
     [SerializeField] private TextMeshProUGUI dialogueText;
-
-    [SerializeField] public GameObject Narration;
+    [SerializeField] GameObject Narration;
 
     private void Awake()
     {

@@ -9,7 +9,6 @@ public class CursorController : MonoBehaviour
     public Texture2D cursor;
     [SerializeField, Tooltip("Clicked Cursor")]
     public Texture2D cursorClicked;
-
     private CursorControls controls;
     private Camera mainCamera;
     GameObject player, dialogueManager;

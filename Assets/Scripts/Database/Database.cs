@@ -17,7 +17,9 @@ public class Database{
         }
     };
 
-    public Dictionary<string, Dialogue> Narration = new Dictionary<string, Dialogue>(){
+    public Dictionary<string, Dialogue> Narration = new Dictionary<string, Dialogue>()
+    {
+        //PART 1
         {"part1 dialog1",new Dialogue{
             NameCharacter = "Test",
             CoreText = "Le vent portait les grains de sable gris aux pieds de Samten, bercé par ses méditations matinales.\nLa terre d'Hora s'éveillait autour de lui et il pouvait sentir les vibrations de la nature et de ses essences, agenouillé là, dans la cour du domaine des Monos. ",
@@ -36,6 +38,11 @@ public class Database{
         {"part1 dialog4",new Dialogue{
             NameCharacter = "Anil",
             CoreText = "Allez Samten, tu iras te promener après ton entrainement, dit il en lui lancant un baton en bois blanc.",
+            Picture = "NarrationBG/BG"} 
+        },
+        {"part1 dialog5",new Dialogue{
+            NameCharacter = "Anil",
+            CoreText = "Samten prenait une grande gorgée d'eau fraîche à la fontaine avant de franchir les portes du temple Monos. Ses pieds glissaient nonchalamment sur le sable fin et gris. Une Emer lumineuse s'approcha, flottant près de lui. Il tendit la main calmement pour ne pas l'effrayer. Il fit rouler la petite sphère luminescente le long de son bras et souffla pour la guider dans l'air et puis se dirigea vers sa zone d'inspection.",
             Picture = "NarrationBG/BG"} 
         },
     };

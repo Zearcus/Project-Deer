@@ -7588,6 +7588,9 @@ MonoBehaviour:
   narBG: {fileID: 0}
   part: 0
   dialog: 0
+  Narration: {fileID: 1391341917}
+  player: {fileID: 0}
+  _player: {fileID: 0}
   textSpeed: 0
 --- !u!1001 &1507028809
 PrefabInstance:
@@ -8050,8 +8053,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1817.2, y: 265.79}
+  m_AnchoredPosition: {x: 0, y: -111}
+  m_SizeDelta: {x: 127, y: 58.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800442515
 MonoBehaviour:
@@ -8122,15 +8125,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
