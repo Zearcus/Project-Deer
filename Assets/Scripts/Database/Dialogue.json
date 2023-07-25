@@ -1,0 +1,14 @@
+{
+    "dialogues": [
+        {
+        "NameCharacter" : "Samten",
+        "CoreText" : "bonjour",
+        "Picture" : "/Pictures/Samten.jpg"
+        },
+        {
+        "NameCharacter" : "Clément",
+        "CoreText" : "bonsoir",
+        "Picture" : "/Pictures/Clément.jpg"
+        }
+    ]
+}
