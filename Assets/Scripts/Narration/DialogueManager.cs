@@ -10,7 +10,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Image _narrationObject;
     [SerializeField] Sprite narBG;
     private bool dialogueIsPlaying;
-    Database data = new Database();
+    Database data;
+    DialogueDatabase _data = new DialogueDatabase();
     private static DialogueManager instance; 
     [SerializeField] public int part, dialog;
     [SerializeField] GameObject Narration, player;
@@ -46,7 +47,7 @@ public class DialogueManager : MonoBehaviour
         textSpeed = 0.02f;
         player = GameObject.FindWithTag("Player");
         _player = player.GetComponent<PlayerMovement>();
-        text = data.Narration["part" + part + " dialog" + dialog].CoreText;
+        text = _data.Narration["part" + part + " dialog" + dialog].CoreText;
         nameText.text = data.Narration["part" + part + " dialog" + dialog].NameCharacter;
         _narrationObject.sprite = Resources.Load<Sprite>(data.Narration["part" + part + " dialog" + dialog].Picture);
     }
