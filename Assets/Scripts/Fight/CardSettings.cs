@@ -18,9 +18,9 @@ public class CardSettings : MonoBehaviour
             CreateButton();
             isActivate = true;
         }
-        if (game.name != "Card" && isActivate == true)
+        if (game.name != "Hache" && isActivate)
         {
-            DestroyButton();
+            //DestroyButton();
             isActivate = false;
         }
     }
@@ -53,7 +53,7 @@ public class CardSettings : MonoBehaviour
         }
     }
 
-    private void DestroyButton()
+    public void DestroyButton()
     {
         while (CurrentValue != 0)
         {

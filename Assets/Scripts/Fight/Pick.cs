@@ -22,8 +22,9 @@ public class Pick : MonoBehaviour
         if (canPick == true)
         {
             // var Cards = Ressources.Load("Card") as GameObject;
-            card = Instantiate(card, new Vector3(-2.7f, 0.1f, -0.7f + posZ), transform.rotation);
+            card = Instantiate(card, new Vector3(-2.7f, 0.1f, -0.7f + posZ), Quaternion.Euler(0.0f, 90.0f, 0.0f));
             card.name = test.GetNameDataBase();
+            card.tag = "Cards";
             posZ = posZ + 1.0f;
         }
     }

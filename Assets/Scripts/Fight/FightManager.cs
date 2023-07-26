@@ -25,16 +25,22 @@ public class FightManager : MonoBehaviour
             {
                 if (mouse.hit.transform != null)
                 {
-                   pick.PickUp(mouse.hit.transform.gameObject);
-                   test(mouse.hit.transform.parent.gameObject);
-                   set.SetButtons(mouse.hit.transform.gameObject);
-                   button.SetArea(mouse.hit.transform.gameObject);
+                    pick.PickUp(mouse.hit.transform.gameObject);
+                    set.SetButtons(mouse.hit.transform.gameObject);
+                    button.SetArea(mouse.hit.transform.gameObject);
+                    button.Summoning(mouse.hit.transform.gameObject);
+                    
+                    if(!button.check1 && button.check2){
+                        set.DestroyButton();
+                    }
+                    //test(mouse.hit.transform.gameObject);
                 }
             }
         }
     }
 
-    void test(GameObject game){
-        Debug.Log(game.tag);
+    void test(GameObject game)
+    {
+        Debug.Log(game.name);
     }
 }
