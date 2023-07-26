@@ -4,9 +4,15 @@ using UnityEngine;
     
 public class Database : MonoBehaviour{
 
+    public DialogueDatabase dialog = new DialogueDatabase();
+    NameDialog didi;
+    
     public string NameCard = "";
     public string NameEnemies = "";
     public string NameDialogue = "";
+    public int IDDialogue;
+    
+
 
     public Dictionary<string, CardData> Card = new Dictionary<string, CardData>(){
         {"Hache",new CardData{
@@ -19,8 +25,18 @@ public class Database : MonoBehaviour{
     };
 
     public Dictionary<string, Dialogue> dialogues = new Dictionary<string, Dialogue>(){
-        
+
     };
+
+    public void LoadFromJson()
+    {
+
+        string filePath = "Assets/Scripts/Database/Dialogue.json";
+        string DialogueData = System.IO.File.ReadAllText(filePath);
+
+        dialog = JsonUtility.FromJson<DialogueDatabase>(DialogueData);
+        Debug.Log("Donnée chargée");
+    }
 
     public Dictionary<string, EnemyData> Enemies = new Dictionary<string, EnemyData>(){
 
@@ -49,6 +65,17 @@ public class EnemyData{
 }
 
 //Dialogue Part
+[System.Serializable]
+public class DialogueDatabase
+{
+    public List<Dialogue> dialogues = new List<Dialogue>();
+}
+
+[System.Serializable]
+public class NameDialog{
+    public string ID;
+}
+[System.Serializable]
 public class Dialogue
 {
     public string NameCharacter;
