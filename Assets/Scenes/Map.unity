@@ -7588,6 +7588,7 @@ MonoBehaviour:
   narBG: {fileID: 0}
   part: 0
   dialog: 0
+  choice: 0
   Narration: {fileID: 1391341917}
   player: {fileID: 0}
   _player: {fileID: 0}
@@ -9412,7 +9413,7 @@ PrefabInstance:
     - target: {fileID: 7412286660758089610, guid: 3c38f4ac2d86b2c468883c70c8c20f92,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7412286660758089610, guid: 3c38f4ac2d86b2c468883c70c8c20f92,
         type: 3}
@@ -9422,7 +9423,7 @@ PrefabInstance:
     - target: {fileID: 7412286660758089610, guid: 3c38f4ac2d86b2c468883c70c8c20f92,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -20.96
+      value: -20.92
       objectReference: {fileID: 0}
     - target: {fileID: 7412286660758089610, guid: 3c38f4ac2d86b2c468883c70c8c20f92,
         type: 3}

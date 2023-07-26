@@ -10,10 +10,9 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] Image _narrationObject;
     [SerializeField] Sprite narBG;
     private bool dialogueIsPlaying;
-    Database data;
-    DialogueDatabase _data = new DialogueDatabase();
+    Database data = new Database();
     private static DialogueManager instance; 
-    [SerializeField] public int part, dialog;
+    [SerializeField] public int part, dialog, choice;
     [SerializeField] GameObject Narration, player;
     [SerializeField] PlayerMovement _player;
     string text;
@@ -44,12 +43,13 @@ public class DialogueManager : MonoBehaviour
     {
         part = 1;
         dialog = 1;
+        choice = 0;
         textSpeed = 0.02f;
         player = GameObject.FindWithTag("Player");
         _player = player.GetComponent<PlayerMovement>();
-        text = _data.Narration["part" + part + " dialog" + dialog].CoreText;
-        nameText.text = data.Narration["part" + part + " dialog" + dialog].NameCharacter;
-        _narrationObject.sprite = Resources.Load<Sprite>(data.Narration["part" + part + " dialog" + dialog].Picture);
+        text = data.Narration["part" + part + " dialog" + dialog + " choice" + choice].CoreText;
+        nameText.text = data.Narration["part" + part + " dialog" + dialog + " choice" + choice].NameCharacter;
+        _narrationObject.sprite = Resources.Load<Sprite>(data.Narration["part" + part + " dialog" + dialog + " choice" + choice].Picture);
     }
 
     public void EnterNarrationMode()
@@ -65,9 +65,9 @@ public class DialogueManager : MonoBehaviour
     public void NextDialogue()
     {
         dialog++;
-        text = data.Narration["part" + part + " dialog" + dialog].CoreText;
-        nameText.text = data.Narration["part" + part + " dialog" + dialog].NameCharacter;
-        _narrationObject.sprite = Resources.Load<Sprite>(data.Narration["part" + part + " dialog" + dialog].Picture);
+        text = data.Narration["part" + part + " dialog" + dialog + " choice" + choice].CoreText;
+        nameText.text = data.Narration["part" + part + " dialog" + dialog + " choice" + choice].NameCharacter;
+        _narrationObject.sprite = Resources.Load<Sprite>(data.Narration["part" + part + " dialog" + dialog + " choice" + choice].Picture);
 
         if (dialog >= 5 && dialog <= 5)
         {
