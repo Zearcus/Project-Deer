@@ -6,22 +6,15 @@ public class CardSettings : MonoBehaviour
 {
     public GameObject Summon, Detail;
     private int CurrentValue;
-    private bool isActivate = false;
     //private string testString;
 
     //create a a collider area for set cards in the board
     public void SetButtons(GameObject game)
     {
         //testString = game.name;
-        if (game.name == "Hache")
+        if (game.tag == "Cards")
         {
             CreateButton();
-            isActivate = true;
-        }
-        if (game.name != "Hache" && isActivate)
-        {
-            //DestroyButton();
-            isActivate = false;
         }
     }
 

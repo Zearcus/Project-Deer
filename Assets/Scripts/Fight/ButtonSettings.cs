@@ -6,8 +6,7 @@ public class ButtonSettings : MonoBehaviour
 {
     public GameObject Collider;
     private int CurrentValue;
-    public bool isActivate = false;
-    public bool check1 = false, check2 = false;
+    public bool Validate = true;
     private string nameC;
     private Vector3 colliderC, card;
 
@@ -16,11 +15,23 @@ public class ButtonSettings : MonoBehaviour
         if (game.name == ("Button Summon"))
         {
             CreateColliders();
-            isActivate = true;
         }
-        // if (game.tag != "Collider" && isActivate){
-        //     DestroyColliders();
-        // }
+
+        switch (game.tag)
+        {
+            case "Cards":
+                nameC = game.name;
+                card = game.transform.position;
+                //Debug.Log(card);
+                //Debug.Log(nameC);
+            break;
+            case "Collider":
+                colliderC = game.transform.position;
+                //Debug.Log(colliderC);
+                Summoning();
+            break;
+        }
+
     }
 
     private void CreateColliders()
@@ -73,38 +84,16 @@ public class ButtonSettings : MonoBehaviour
         return letter;
     }
 
-    public void Summoning(GameObject game)
+    public void Summoning()
     {
-        if (isActivate)
+        float speed = 1.0f;
+        GameObject move = GameObject.Find(nameC);
+        while (move.transform.position != colliderC)
         {
-            switch(game.tag){
-                case "Collider":
-                    colliderC = game.transform.position;
-                    Debug.Log(colliderC);
-                    check2 = true;
-                    break;
-                case "Cards":
-                    card = game.transform.position;
-                    nameC = game.name;
-                    Debug.Log(card);
-                    Debug.Log(nameC);
-                    check1 = true;
-                    break;
-            }
-            if(check1 && check2){
-                float speed = 1.0f;
-                GameObject move = GameObject.Find(nameC);
-                while(move.transform.position != colliderC){
-                    move.transform.position = Vector3.MoveTowards(move.transform.position, colliderC, speed);
-                }
-                DestroyColliders();
-                isActivate = false;
-                check1 = false;
-                check2 = false;
-            }
-
+            move.transform.position = Vector3.MoveTowards(move.transform.position, colliderC, speed);
         }
-
+        DestroyColliders();
+        Validate = !Validate;
     }
 }
 

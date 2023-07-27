@@ -28,10 +28,10 @@ public class FightManager : MonoBehaviour
                     pick.PickUp(mouse.hit.transform.gameObject);
                     set.SetButtons(mouse.hit.transform.gameObject);
                     button.SetArea(mouse.hit.transform.gameObject);
-                    button.Summoning(mouse.hit.transform.gameObject);
                     
-                    if(!button.check1 && button.check2){
+                    if(!button.Validate){
                         set.DestroyButton();
+                        button.Validate = true;
                     }
                     //test(mouse.hit.transform.gameObject);
                 }
