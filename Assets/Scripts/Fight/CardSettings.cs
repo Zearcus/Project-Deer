@@ -6,6 +6,7 @@ public class CardSettings : MonoBehaviour
 {
     public GameObject Summon, Detail;
     private int CurrentValue;
+    private Vector3 cardPos, range = new Vector3(0.2f, 0, -0.6f);
     //private string testString;
 
     //create a a collider area for set cards in the board
@@ -14,7 +15,12 @@ public class CardSettings : MonoBehaviour
         //testString = game.name;
         if (game.tag == "Cards")
         {
+            cardPos = game.transform.position;
+            if(CurrentValue != 0){
+                DestroyButton();
+            }
             CreateButton();
+            
         }
     }
 
@@ -28,16 +34,15 @@ public class CardSettings : MonoBehaviour
             switch (CurrentValue)
             {
                 case 1:
-                    GameObject buttonS = Instantiate(Summon, new Vector3(-2.5f + PosX, 0.1f, -1.3f), Quaternion.Euler(90, 90, 0));
+                    GameObject buttonS = Instantiate(Summon, new Vector3(cardPos.x + range.x, cardPos.y, cardPos.z + range.z), Quaternion.Euler(90, 90, 0));
                     buttonS.name = "Button" + " " + SetNameButton();
                     buttonS.tag = ("Button");
                     PosX = PosX - 0.7f;
                     break;
                 case 2:
-                    GameObject buttonD = Instantiate(Detail, new Vector3(-2.5f + PosX, 0.1f, -1.3f), Quaternion.Euler(90, 90, 0));
+                    GameObject buttonD = Instantiate(Detail, new Vector3(cardPos.x + range.x + PosX, cardPos.y, cardPos.z + range.z), Quaternion.Euler(90, 90, 0));
                     buttonD.name = "Button" + " " + SetNameButton();
                     buttonD.tag = ("Button");
-                    //PosX = PosX - 0.5f;
                     break;
                 default:
                     Debug.Log("Rien ne peut être invoqué.");  
