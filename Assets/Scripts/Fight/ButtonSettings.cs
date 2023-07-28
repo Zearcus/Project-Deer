@@ -14,6 +14,9 @@ public class ButtonSettings : MonoBehaviour
     {
         if (game.name == ("Button Summon"))
         {
+            if(CurrentValue != 0){
+                DestroyColliders();
+            }
             CreateColliders();
         }
 
@@ -22,17 +25,16 @@ public class ButtonSettings : MonoBehaviour
             case "Cards":
                 nameC = game.name;
                 card = game.transform.position;
-                //Debug.Log(card);
-                //Debug.Log(nameC);
             break;
             case "Collider":
                 colliderC = game.transform.position;
-                //Debug.Log(colliderC);
                 Summoning();
             break;
         }
 
     }
+    //faire une liste pour enregistrer le nom des cartes que tu cliques pour pouvoir, 
+    // tester et générers des colliders si il y a déjà des cartes sur le terrain.
 
     private void CreateColliders()
     {

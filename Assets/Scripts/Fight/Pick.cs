@@ -29,3 +29,7 @@ public class Pick : MonoBehaviour
         }
     }
 }
+
+public class Inventory{
+    string name;
+}
