@@ -8,7 +8,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] Image _narrationObject;
-    [SerializeField] Sprite narBG;
     private bool dialogueIsPlaying;
     Database data = new Database();
     private static DialogueManager instance; 
@@ -56,10 +55,6 @@ public class DialogueManager : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(ProgressiveText());
-        Debug.Log(dialog);
-        Debug.Log(text);
-        Debug.Log(name);
-        Debug.Log(_narrationObject.sprite);
     }
 
     public void NextDialogue()
