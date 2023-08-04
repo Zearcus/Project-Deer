@@ -13,12 +13,24 @@ MonoBehaviour:
   m_Name: Point 2
   m_EditorClassIdentifier: 
   dialogueLines:
+  - name: Nop
+    dialogue: Yes
+    narBG: {fileID: 21300000, guid: b821b7049e295984e9e64a03e1af8ad2, type: 3}
   - name: 
-    dialogue: 
+    dialogue: tqzfgqzsg
     narBG: {fileID: 0}
   - name: 
-    dialogue: 
+    dialogue: gsqgsqg
     narBG: {fileID: 0}
   - name: 
-    dialogue: 
+    dialogue: gsqgsqg
+    narBG: {fileID: 0}
+  - name: 
+    dialogue: gsqgsqg
+    narBG: {fileID: 0}
+  - name: 
+    dialogue: gsqgsqg
+    narBG: {fileID: 0}
+  - name: 
+    dialogue: gsqgsqg
     narBG: {fileID: 0}
