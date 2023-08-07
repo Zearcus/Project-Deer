@@ -6,7 +6,7 @@ public class LoadCards : MonoBehaviour
     public TextMeshPro textName, textAttack, textMana, textType;
     Database data = new Database();
 
-    InventoryTest test = new InventoryTest();
+    InventoryTest inventory = new InventoryTest();
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +15,10 @@ public class LoadCards : MonoBehaviour
     }
 
     void LoadingCards(){
-        textName.text = test.GetNameDataBase();
-        textType.text = data.Card[test.GetNameDataBase()].Type.ToString();
-        textAttack.text = data.Card[test.GetNameDataBase()].NA.ToString();
-        textMana.text = data.Card[test.GetNameDataBase()].HA.ToString();
+        textName.text = inventory.GetNameDataBase();
+        textType.text = data.Card[textName.text].Type.ToString();
+        textAttack.text = data.Card[textName.text].NA.ToString();
+        textMana.text = data.Card[textName.text].HA.ToString();
     }
 
     //faire un système de loading de carte par type de carte quand on pioche.

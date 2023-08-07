@@ -1,20 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ButtonSettings : MonoBehaviour
 {
+    //readonly Pick pick;
+
     public GameObject Collider;
     private int CurrentValue;
+    float PosZ = 0.0f;
     public bool Validate = true;
+    private bool Check;
     private string nameC;
     private Vector3 colliderC, card;
 
     public void SetArea(GameObject game)
     {
-        if (game.name == ("Button Summon"))
+        if (game.name == "Button Summon")
         {
-            if(CurrentValue != 0){
+            if (CurrentValue != 0)
+            {
                 DestroyColliders();
             }
             CreateColliders();
@@ -25,11 +31,11 @@ public class ButtonSettings : MonoBehaviour
             case "Cards":
                 nameC = game.name;
                 card = game.transform.position;
-            break;
+                break;
             case "Collider":
                 colliderC = game.transform.position;
                 Summoning();
-            break;
+                break;
         }
 
     }
@@ -39,21 +45,24 @@ public class ButtonSettings : MonoBehaviour
     private void CreateColliders()
     {
         int MaxValue = 4;
-        float PosZ = 0.0f;
+        
         // create colliders
-        while (CurrentValue != MaxValue)
+        for (int i = 0; i < MaxValue; i++)
         {
             CurrentValue++;
-            GameObject Area = Instantiate(Collider, new Vector3(-0.5f, 0.3f, 2.0f + PosZ), Quaternion.Euler(0.0f, 90.0f, 0.0f));
-            Area.name = "Collider" + " " + SetLetterCollider();
-            Area.tag = "Collider";
-            PosZ = PosZ - 1.0f;
+            if(CheckCollider() == false){
+                GameObject Area = Instantiate(Collider, new Vector3(-0.5f, 0.3f, 2.0f + PosZ), Quaternion.Euler(0.0f, 90.0f, 0.0f));
+                Area.name = "Collider" + " " + SetLetterCollider();
+                Area.tag = "Collider";
+            }
+            PosZ --;
         }
+        PosZ = default;
     }
 
     private void DestroyColliders()
     {
-        while (CurrentValue != 0)
+        for (int i = 0; i != CurrentValue;)
         {
             var name = GameObject.Find("Collider" + " " + SetLetterCollider());
             Destroy(name);
@@ -96,6 +105,28 @@ public class ButtonSettings : MonoBehaviour
         }
         DestroyColliders();
         Validate = !Validate;
+    }
+
+    private bool CheckCollider()
+    {
+        GameObject pick = GameObject.Find("FightManager");
+        List<float> checkCard = new();
+        for (int i = 0; i < pick.GetComponent<Pick>().MaxNumberInHand; i++)
+        {
+            GameObject CurrentObject = GameObject.FindGameObjectWithTag("Cards");
+            checkCard.Add(CurrentObject.transform.position.z);
+        }
+        foreach (float element in checkCard){
+            Debug.Log(element);
+            if (element == PosZ){
+                
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        return false;
     }
 }
 

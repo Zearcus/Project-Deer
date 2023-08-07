@@ -538,7 +538,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16, y: 295}
+  m_AnchoredPosition: {x: 16, y: 148}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &316766305
@@ -791,7 +791,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c87c6a8df827f42ac71e39dd7c8e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxNumberInHand: 0
   card: {fileID: 9075713273291390036, guid: 6e691bca33c74654bab5d12e7f1070e9, type: 3}
+  random:
+  - Hache
+  - Epee
+  - Arc
 --- !u!114 &496489272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,6 +854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collider: {fileID: 8913319810659044661, guid: dfeb4c058bb0e934ea1ef8fd73588e4b,
     type: 3}
+  Validate: 1
 --- !u!1 &537871411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,7 +1181,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 284, y: -119}
+  m_AnchoredPosition: {x: 385, y: -172}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &701549380

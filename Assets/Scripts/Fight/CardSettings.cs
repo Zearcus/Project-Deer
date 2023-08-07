@@ -6,7 +6,7 @@ public class CardSettings : MonoBehaviour
 {
     public GameObject Summon, Detail;
     private int CurrentValue;
-    private Vector3 cardPos, range = new Vector3(0.2f, 0, -0.6f);
+    private Vector3 cardPos, range = new(0.2f, 0, -0.6f);
     //private string testString;
 
     //create a a collider area for set cards in the board
@@ -28,7 +28,7 @@ public class CardSettings : MonoBehaviour
     {
         int MaxValue = 2;
         float PosX = 0.0f;
-        while (CurrentValue != MaxValue)
+        for (int i = 0; i < MaxValue; i++)
         {
             CurrentValue++;
             switch (CurrentValue)
@@ -36,13 +36,13 @@ public class CardSettings : MonoBehaviour
                 case 1:
                     GameObject buttonS = Instantiate(Summon, new Vector3(cardPos.x + range.x, cardPos.y, cardPos.z + range.z), Quaternion.Euler(90, 90, 0));
                     buttonS.name = "Button" + " " + SetNameButton();
-                    buttonS.tag = ("Button");
-                    PosX = PosX - 0.7f;
+                    buttonS.tag = "Button";
+                    PosX -= 0.7f;
                     break;
                 case 2:
                     GameObject buttonD = Instantiate(Detail, new Vector3(cardPos.x + range.x + PosX, cardPos.y, cardPos.z + range.z), Quaternion.Euler(90, 90, 0));
                     buttonD.name = "Button" + " " + SetNameButton();
-                    buttonD.tag = ("Button");
+                    buttonD.tag = "Button";
                     break;
                 default:
                     Debug.Log("Rien ne peut être invoqué.");  
@@ -53,7 +53,7 @@ public class CardSettings : MonoBehaviour
 
     public void DestroyButton()
     {
-        while (CurrentValue != 0)
+        for (int i = 0; i != CurrentValue;)
         {
             var name = GameObject.Find("Button" + " " + SetNameButton());
             Destroy(name);
