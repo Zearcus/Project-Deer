@@ -11,7 +11,6 @@ public class ButtonSettings : MonoBehaviour
     private int CurrentValue;
     float PosZ = 0.0f;
     public bool Validate = true;
-    private bool Check;
     private string nameC;
     private Vector3 colliderC, card;
 
@@ -50,7 +49,8 @@ public class ButtonSettings : MonoBehaviour
         for (int i = 0; i < MaxValue; i++)
         {
             CurrentValue++;
-            if(CheckCollider() == false){
+            //Debug.Log(CheckCollider());
+            if(CheckCollider() == true){
                 GameObject Area = Instantiate(Collider, new Vector3(-0.5f, 0.3f, 2.0f + PosZ), Quaternion.Euler(0.0f, 90.0f, 0.0f));
                 Area.name = "Collider" + " " + SetLetterCollider();
                 Area.tag = "Collider";
@@ -109,24 +109,29 @@ public class ButtonSettings : MonoBehaviour
 
     private bool CheckCollider()
     {
+        //Find script Pick in FightManagerGameObject
         GameObject pick = GameObject.Find("FightManager");
+
+        // List and tab GameObject for found all Cards in scene       
+        GameObject[] Cards = GameObject.FindGameObjectsWithTag("Cards");
         List<float> checkCard = new();
-        for (int i = 0; i < pick.GetComponent<Pick>().MaxNumberInHand; i++)
-        {
-            GameObject CurrentObject = GameObject.FindGameObjectWithTag("Cards");
-            checkCard.Add(CurrentObject.transform.position.z);
+        List<string> NameCards = new();
+
+
+        foreach(GameObject card in Cards){
+            NameCards.Add(card.name);
+        }
+        for(int i = 0; i < pick.GetComponent<Pick>().MaxNumberInHand; i++){
+            GameObject find = GameObject.Find(NameCards[i]);
+            checkCard.Add(find.transform.position.z);
         }
         foreach (float element in checkCard){
-            Debug.Log(element);
             if (element == PosZ){
-                
-                return true;
-            }
-            else{
+                //Debug.Log(element);
                 return false;
             }
         }
-        return false;
+        return true;
     }
 }
 
