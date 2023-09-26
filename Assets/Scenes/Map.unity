@@ -6783,7 +6783,7 @@ MonoBehaviour:
   nameText: {fileID: 883267455}
   Narration: {fileID: 1391341917}
   _narrationObject: {fileID: 570514158}
-  textSpeed: 0.02
+  textSpeed: 0.00002
   currentDialogue: {fileID: 11400000, guid: a5e2c3a3526ba844ab139e52f6cb4d32, type: 2}
   point: 0
 --- !u!1 &1391341917 stripped
@@ -9028,6 +9028,6 @@ MonoBehaviour:
   nameText: {fileID: 883267455}
   Narration: {fileID: 1391341917}
   _narrationObject: {fileID: 570514158}
-  textSpeed: 0.02
+  textSpeed: 1e-19
   currentDialogue: {fileID: 11400000, guid: 07e3bfd5c1c4bfc4e85e584c134de3fa, type: 2}
   point: 0

@@ -38,9 +38,6 @@ public class EnableCanvas : MonoBehaviour
     private IEnumerator NextDialogue(DialogueObject dialogueObject)
     {
         dialogueText.ForceMeshUpdate();
-
-        bool displaying = true;
-        bool progressing = true;
     
         for (int i = 0; i < dialogueObject.dialogueLines.Length; i++)
         {
@@ -51,36 +48,13 @@ public class EnableCanvas : MonoBehaviour
             dialogueText.text = "";
 
             foreach(char c in dialogueObject.dialogueLines[i].dialogue.ToCharArray())
-            {
-                if (progressing)
-                {
-                    dialogueText.text += c;
-                    yield return new WaitForSeconds(textSpeed);
-
-                    if(dialogueText.text.Length == dialogueObject.dialogueLines[i].dialogue.Length)
-                    {
-                        progressing = false;
-                        displaying = false;
-                    }
-                }
-
-                if (Input.GetMouseButton(0) && displaying)
-                {
-                    dialogueText.text = "";
-                    displaying = false;
-                    progressing = false;
-                    Debug.Log("Debug 1 =" + displaying);
-                }   
+            { 
+                dialogueText.text += c;
+                yield return new WaitForSeconds(textSpeed);   
             }
 
-            if (!displaying)
-            {
-                yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
-                yield return null;
-                displaying = true;
-                progressing = true;
-                Debug.Log("Debug 2 =" + displaying);
-            }
+            yield return new WaitUntil(()=>Input.GetMouseButtonDown(0));
+            yield return null;
         }
         
         Narration.SetActive(false);
