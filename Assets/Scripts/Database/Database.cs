@@ -15,6 +15,20 @@ public class Database : MonoBehaviour{
         Description = "Longue hache qui coupe",
         NA = 10,
         HA = 50}
+        },
+        {"Epee",new CardData{
+        Type = "Weapon",
+        Picture = "/Pictures/Hache.png",
+        Description = "Longue hache qui coupe",
+        NA = 15,
+        HA = 100}
+        },
+        {"Arc",new CardData{
+        Type = "Weapon",
+        Picture = "/Pictures/Hache.png",
+        Description = "Longue hache qui coupe",
+        NA = 10,
+        HA = 20}
         }
     };
 
