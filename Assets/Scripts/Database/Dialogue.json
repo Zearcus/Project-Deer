@@ -1,0 +1,20 @@
+{
+    "Part1": {
+        "dialogues": [
+            {
+                "NameCharacter": "Samten",
+                "CoreText": "bonjour",
+                "Picture": "/Pictures/Samten.jpg"
+            }
+        ]
+    },
+    "Part2":{
+        "dialogues": [
+            {
+                "NameCharacter": "Clément",
+                "CoreText": "bonjour",
+                "Picture": "/Pictures/Samten.jpg"
+            }
+        ]
+    }
+}

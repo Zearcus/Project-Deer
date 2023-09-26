@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - ChoicePoint
+  - Canvas
+  - Buttons
+  - Narration
+  - NarrationPoint
+  - StopPoints
+  - TriggerZone
+  - Cursor
+  - DialogueManager
   layers:
   - Default
   - TransparentFX

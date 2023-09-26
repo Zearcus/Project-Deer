@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 463be200d5f3f724b9baf63965db7e7f, type: 3}
+  m_Name: Point 1
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - name: 
+    dialogue: "Le vent portait les grains de sable gris aux pieds de Samten, berc\xE9
+      par ses m\xE9ditations matinales.\nLa terre d'Hora s'\xE9veillait autour de
+      lui et il pouvait sentir les vibrations de la nature et de ses essences, agenouill\xE9
+      l\xE0, dans la cour du domaine des Monos."
+    narBG: {fileID: 21300000, guid: b821b7049e295984e9e64a03e1af8ad2, type: 3}
+  - name: 
+    dialogue: "Un de ses fr\xE8res qui passait le balai sur les vagues form\xE9es
+      par le sable entass\xE9 passa dans les rangs et leva une main pour leur signifier
+      la fin de l'exercice. Chacun se redressa. \nUn murmure d'oiseaux s'\xE9leva
+      au-dessus d'eux. Samten observa les volatiles pendant qu'il roulait une membrane
+      de tissu autour de ses mains."
+    narBG: {fileID: 21300000, guid: b821b7049e295984e9e64a03e1af8ad2, type: 3}
+  - name: 
+    dialogue: "Son ami, Anil, tapota son \xE9paule pour le sortir de sa r\xEAverie."
+    narBG: {fileID: 21300000, guid: b821b7049e295984e9e64a03e1af8ad2, type: 3}
+  - name: Anil
+    dialogue: "Allez Samten, tu iras te promener apr\xE8s ton entrainement, dit il
+      en lui lancant un baton en bois blanc."
+    narBG: {fileID: 21300000, guid: b821b7049e295984e9e64a03e1af8ad2, type: 3}
