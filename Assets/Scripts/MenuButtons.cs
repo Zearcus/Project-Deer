@@ -33,7 +33,7 @@ public class MenuButtons : MonoBehaviour
 
     public void CharacterSelected()
     {
-        SceneManager.LoadScene("PauseMenu");
+        SceneManager.LoadScene("Map");
     }
 
     public void ExitInventory()
@@ -74,6 +74,7 @@ public class MenuButtons : MonoBehaviour
         foreach (Transform element in GameObject.Find("PauseMenu").transform)
         {
             element.gameObject.SetActive(false);
+            SceneManager.UnloadSceneAsync("PauseMenu");
         }
     }
 
