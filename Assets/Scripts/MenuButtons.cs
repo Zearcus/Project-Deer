@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class MenuButtons : MonoBehaviour
 {
+
     public void BackCharacter()
     {
         foreach (Transform element in GameObject.Find("CharacterSelection").transform)
@@ -71,11 +72,7 @@ public class MenuButtons : MonoBehaviour
 
     public void Resume()
     {
-        foreach (Transform element in GameObject.Find("PauseMenu").transform)
-        {
-            element.gameObject.SetActive(false);
-            SceneManager.UnloadSceneAsync("PauseMenu");
-        }
+        gameObject.SetActive(false);
     }
 
     public void SaveSelected()
@@ -102,4 +99,5 @@ public class MenuButtons : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
     }
+
 }

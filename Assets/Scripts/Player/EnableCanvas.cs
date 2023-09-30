@@ -7,7 +7,6 @@ public class EnableCanvas : MonoBehaviour
 {
     GameObject player;
     PlayerMovement _player;
-    GameObject myCanvas;
     DialogueManager dialogue;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI nameText;
@@ -22,7 +21,6 @@ public class EnableCanvas : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         _player = player.GetComponent<PlayerMovement>();
-        myCanvas = GameObject.FindWithTag("Canvas");
     }
 
     private void OnTriggerEnter(Collider col) 
